@@ -1,13 +1,14 @@
 import AboutCard from "../../components/AboutCard"
 import img3 from "../../assets/service3.jpg"
-
+import Section3D from "../../components/Section3D"
+import { Gem, Users, CircleCheck, Lightbulb } from "lucide-react"
 const About = () => {
   return (
-    <div className="px-6 pt-[112px]">
+    <section className="relative px-6 pt-[32px] pb-10 min-h-[500px]">
+  <Section3D />
 
       {/* MAIN GRID */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-
+<div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* LEFT SIDE CONTENT */}
         <div>
           <p className="font-medium text-[24px] text-gray-400">
@@ -22,7 +23,7 @@ const About = () => {
               </span>
             </p>
 
-            <p className="pt-4 text-[#ADADAD] text-[20px] font-outfit max-w-[600px]">
+            <p className="pt-4 text-[#ADADAD] text-[20px] font-outfit max-w-[800px]">
               SLAMS EDUTECH is an IT and EdTech company providing innovative digital solutions in software development, UI/UX design, digital marketing, and web and mobile apps, along with AI & ML, cybersecurity, and IT training. Our mission is to bridge education and industry through practical, skill-based learning and value-driven technology services that help individuals and businesses grow in a digital world.
             </p>
           </div>
@@ -30,50 +31,30 @@ const About = () => {
 
 
         {/* RIGHT SIDE - 4 CARDS */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+       <div className=" gap-3 pt-10">
+        <div className="flex gap-6">
 
-          <div className=" shadow-lg p-6 rounded-xl hover:shadow-xl transition">
-            <AboutCard
-        image={img3}
-        title="Web Development"
-        text="Static & dynamic websites, e-commerce solutions, and custom web applications built with modern technologies"
-        buttonLink="/project/slams"
-      />
-            
-          </div>
+  <AboutCard icon={<Gem className="w-6 h-6 text-[#70A9FF]" />} title="Custom Solutions" text="Tailored software and digital solutions built for your unique business need." />
+  <AboutCard icon={<Users className="w-6 h-6 text-[#70A9FF]" />} title="Expert Team" text="SSkilled developers, designers, and strategists delivering excellence." />
 
-          <div className="bg-white shadow-lg p-6 rounded-xl hover:shadow-xl transition">
-            <h3 className="font-semibold text-lg mb-2">
-              UI/UX Design
-            </h3>
-            <p className="text-gray-500 text-sm">
-              Clean, modern and user-friendly interface design.
-            </p>
-          </div>
 
-          <div className="bg-white shadow-lg p-6 rounded-xl hover:shadow-xl transition">
-            <h3 className="font-semibold text-lg mb-2">
-              AI & ML Solutions
-            </h3>
-            <p className="text-gray-500 text-sm">
-              Smart AI powered automation and analytics solutions.
-            </p>
-          </div>
+</div>
+        <div className="flex gap-6 pt-6">
 
-          <div className="bg-white shadow-lg p-6 rounded-xl hover:shadow-xl transition">
-            <h3 className="font-semibold text-lg mb-2">
-              IT Training
-            </h3>
-            <p className="text-gray-500 text-sm">
-              Industry-ready training programs and mentorship.
-            </p>
-          </div>
+  <AboutCard icon={<CircleCheck className="w-6 h-6 text-[#70A9FF]" />} title="Proven Results" text="STrack record of successful projects and satisfied clients worldwide." />
 
-        </div>
+  <AboutCard icon={<Lightbulb className="w-6 h-6 text-[#70A9FF]" />} title="Innovation-Driven" text="Leveraging cutting-edge technologies to keep you ahead of competition." />
+
+</div>
+
+
+ 
+
+</div>
 
       </div>
 
-    </div>
+    </section>
   )
 }
 
