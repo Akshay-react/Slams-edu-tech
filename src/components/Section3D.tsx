@@ -3,9 +3,9 @@ import { TorusKnot } from "@react-three/drei";
 import { useRef } from "react";
 import * as THREE from "three";
 
-const centerX = 12;
-const centerY = 1;
-const radiusX = 8;
+const centerX = 5;
+const centerY = 5;
+const radiusX = 2;
 const radiusY = 4;
 
 const angle = Math.PI / 4; // ✅ 45 degree rotation
@@ -37,7 +37,7 @@ function Knot(): JSX.Element {
   });
 
   return (
-    <TorusKnot ref={ref} args={[1, 0.35, 200, 32]}>
+    <TorusKnot ref={ref} args={[0.6, 0.35, 200, 32]}>
       <meshStandardMaterial
         color="#52567D"
         metalness={0.5}
@@ -75,7 +75,7 @@ function Ring(): JSX.Element {
 
   return (
     <mesh ref={ref} rotation={[Math.PI / 2, 0, 0]}>
-      <torusGeometry args={[2, 0.15, 64, 200]} />
+      <torusGeometry args={[0.6, 0.35, 200, 32]} />
       <meshStandardMaterial
         color="#52567D"
         metalness={0.6}
