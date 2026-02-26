@@ -8,8 +8,11 @@ const About = () => {
     <section className="relative px-6 pt-[32px] pb-10 min-h-[500px]">
   <Section3D />
 
+
+
       {/* MAIN GRID */}
 <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+  
         {/* LEFT SIDE CONTENT */}
         <div>
           <p className="font-medium text-[24px] text-gray-400">
@@ -63,6 +66,7 @@ const About = () => {
 
   {/* LEFT CARD */}
   <div className="pt-0  w-full">
+
     <div className="relative w-full max-w-[850px] aspect-[850/700] mx-auto">
 
       {/* SVG definition */}

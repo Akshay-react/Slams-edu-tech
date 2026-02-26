@@ -1,9 +1,10 @@
 import React from "react";
 import ceo from "../../assets/founder.jpg";
 import ConnectorShape from "../../components/ConnectorShape";
+
 const FoundersMessage: React.FC = () => {
   return (
-    <section className="relative bg-black text-white py-20 px-6 lg:px-20 overflow-hidden">
+    <section className="relative bg-black text-white py-14 sm:py-16 lg:py-20 px-4 sm:px-8 lg:px-20 overflow-hidden">
 
       {/* SVG defs for image clip */}
       <svg width="0" height="0">
@@ -11,46 +12,70 @@ const FoundersMessage: React.FC = () => {
           <clipPath id="founderClip" clipPathUnits="objectBoundingBox">
             <path
               d="
-               M 0.12 0
-
-    H 0.82
-    L 1 0.18
-
-    V 0.96
-    Q 1 1 0.96 1
-
-    H 0.30
-    L 0.08 0.82
-
-    V 0.04
-    Q 0.08 0 0.12 0
-    Z
+                M 0.12 0
+                H 0.82
+                L 1 0.18
+                V 0.96
+                Q 1 1 0.96 1
+                H 0.30
+                L 0.08 0.82
+                V 0.04
+                Q 0.08 0 0.12 0
+                Z
               "
             />
           </clipPath>
         </defs>
       </svg>
 
-      <div className="relative max-w-[1400px] mx-auto grid lg:grid-cols-2 gap-12 items-center">
+      {/* MAIN GRID */}
+      <div className="
+        relative
+        max-w-[1400px]
+        mx-auto
+        grid
+        grid-cols-1
+        md:grid-cols-2
+        gap-10
+        lg:gap-16
+        items-center
+      ">
 
         {/* LEFT SIDE */}
-        <div className="relative z-10">
+        <div className="relative z-10 order-2 md:order-1">
 
           {/* Heading */}
-          <div className="flex items-center gap-6 mb-10">
+          <div className="flex items-center gap-4 sm:gap-6 mb-6 sm:mb-8 lg:mb-10">
 
-            <h2 className="text-3xl lg:text-4xl font-semibold">
+            <h2 className="
+              text-2xl
+              sm:text-3xl
+              lg:text-4xl
+              font-semibold
+              whitespace-nowrap
+            ">
               Founders Message
             </h2>
 
-            {/* dotted line */}
-            <div className="relative">
-  <ConnectorShape />
-</div>
+            {/* connector line (hide on mobile/tablet small) */}
+            <div className="relative hidden  xl:block">
+              <ConnectorShape />
+            </div>
+
           </div>
 
           {/* Paragraphs */}
-          <div className="space-y-6 text-gray-300 text-[15px] leading-relaxed max-w-[520px]">
+          <div className="
+            space-y-4
+            sm:space-y-5
+            lg:space-y-6
+            text-gray-300
+            text-[14px]
+            sm:text-[15px]
+            lg:text-[16px]
+            leading-relaxed
+            max-w-[520px]
+          ">
 
             <p>
               Technology is not just about innovation but about creating
@@ -73,8 +98,8 @@ const FoundersMessage: React.FC = () => {
               skilled workforce for the future.
             </p>
 
-            <div className="pt-4">
-              <p>Warm regards,</p>
+            <div className="pt-2 sm:pt-3 lg:pt-4">
+              <p className="text-gray-400">Warm regards,</p>
               <p className="text-white font-medium">
                 Aslam K A - Founder
               </p>
@@ -85,20 +110,41 @@ const FoundersMessage: React.FC = () => {
         </div>
 
 
-        {/* RIGHT SIDE */}
-        <div className="relative flex justify-center lg:justify-start">
+        {/* RIGHT SIDE IMAGE */}
+        <div className="
+          relative
+          flex
+          justify-center
+          md:justify-end
+          lg:justify-start
+          order-1
+          md:order-2
+        ">
 
           {/* Image container */}
-          <div className="relative w-[260px] h-[320px] lg:w-[300px] lg:h-[380px]">
+          <div className="
+            relative
+            w-[200px]
+            h-[250px]
 
-            {/* image */}
+            sm:w-[240px]
+            sm:h-[300px]
+
+            md:w-[260px]
+            md:h-[320px]
+
+            lg:w-[300px]
+            lg:h-[380px]
+          ">
+
+            {/* Image */}
             <img
-  src={ceo}
-  className="w-full h-full object-cover"
-  style={{ clipPath: "url(#founderClip)" }}
-/>
+              src={ceo}
+              className="w-full h-full object-cover"
+              style={{ clipPath: "url(#founderClip)" }}
+            />
 
-            {/* border */}
+            {/* Border */}
             <svg
               viewBox="0 0 1 1"
               preserveAspectRatio="none"
@@ -106,20 +152,16 @@ const FoundersMessage: React.FC = () => {
             >
               <path
                 d="
-               M 0.12 0
-
-    H 0.82
-    L 1 0.18
-
-    V 0.96
-    Q 1 1 0.96 1
-
-    H 0.30
-    L 0.08 0.82
-
-    V 0.04
-    Q 0.08 0 0.12 0
-    Z
+                  M 0.12 0
+                  H 0.82
+                  L 1 0.18
+                  V 0.96
+                  Q 1 1 0.96 1
+                  H 0.30
+                  L 0.08 0.82
+                  V 0.04
+                  Q 0.08 0 0.12 0
+                  Z
                 "
                 fill="none"
                 stroke="#9CA3AF"
@@ -132,10 +174,6 @@ const FoundersMessage: React.FC = () => {
         </div>
 
       </div>
-
-
-     
-
 
     </section>
   );
