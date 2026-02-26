@@ -19,7 +19,9 @@ export default {
           "0%": { transform: "translate(0%, 0%)", opacity: "1" },
           "100%": { transform: "translate(50%, 0%)", opacity: "1" },
         },
+        
       },
+      
     },
   },
   plugins: [],

@@ -35,7 +35,7 @@ const Navbar: React.FC = () => {
             initialActiveIndex={0}
             animationTime={600}
             timeVariance={300}
-            colors={[1, 2, 3, 1, 2, 3, 1, 4]}
+            colors={[1, 2, 3, 1, 4, 3, 1, 2]}
           />
         </div>
 
