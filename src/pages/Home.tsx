@@ -6,7 +6,7 @@ import Deliver from '../sections/Home/Deliver';
 import About from '../sections/Home/About';
 const Home = () => {
   return (
-   <div className="px-">
+   <div className="">
     <HeroPage />
     <Service />
     <Works />

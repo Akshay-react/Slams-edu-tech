@@ -1,106 +1,94 @@
 import { ArrowUpRight } from "lucide-react";
+
 export default function AboutCard({
   image,
   title,
   text,
+  icon,
   buttonLink = "#",
-  
 }) {
   return (
-    <div className="w-full max-w-[390px] aspect-[390/396] relative group">
-
+    <div className="w-full max-w-[370px] backdrop-blur-sm  aspect-[370/220] relative group ">
       <svg
-        viewBox="0 0 390 396"
+        viewBox="0 0 370 220"
         className="w-full h-full"
         xmlns="http://www.w3.org/2000/svg"
       >
 
         {/* Clip path */}
-      <defs>
-    <clipPath id="customClip" clipPathUnits="objectBoundingBox">
-      <path d="
-        M 0.54 0
-        Q 0.57 0 0.60 0.05
-        L 0.65 0.15
-        Q 0.68 0.18 0.72 0.15
-        L 1 0.15
-        Q 1 0.18 1 0.22
-        L 1 1
-        Q 0.98 1 0.95 1
-        L 0.05 1
-        Q 0 1 0 0.95
-        L 0 0.61
-        Q 0 0.57 0.03 0.55
-        L 0 0.05
-        Q 0 0 0.05 0
-        L 0.54 0
-        Z
-      " />
-    </clipPath>
-  </defs>
+        <defs>
+          <clipPath id="customClip" clipPathUnits="userSpaceOnUse">
+            <path
+              d="
+                M 199 0
+                Q 210 0 222 11
+                L 241 29
+                Q 251 32 266 33
+                L 370 33
+                Q 370 42 370 50
+                L 370 220
+                Q 362 220 351 220
+                L 19 220
+                Q 0 220 0 208
+                L 0 134
+                Q 0 20 0 0
+                L 199 0
+                Z
+              "
+            />
+          </clipPath>
+        </defs>
 
         {/* Content */}
         <foreignObject
           x="0"
           y="0"
-          width="390"
-          height="396"
-          clipPath="url(#cardClip)"
+          width="370"
+          height="270"
+          clipPath="url(#customClip)"
         >
-          <div className="w-full h-full relative">
+          <div className="w-full h-full relative bg-transparent">
 
-            {/* Image */}
-            <img
-              src={image}
-              alt={title}
-              className="w-full h-full object-cover scale-125 -translate-y-12 transition duration-700 group-hover:scale-150 group-hover:-translate-y-20"
-            />
-
-            {/* Overlay */}
-            <div className="absolute inset-0 bg-black/40"></div>
+            {/* Transparent overlay (optional, keeps structure same) */}
+            <div className="absolute inset-0"></div>
 
             {/* Text */}
-            <div className="absolute bottom-20 left-5 text-white ">
-              <div className="font-bold text-[24px]">{title}</div> 
-              <div className="text-medium text-[14px] max-w-[300px]">{text}</div>
+            <div className="absolute bottom-20 left-5  text-white">
+                <div className="">{icon}</div>
+              <div className="font-sm text-[20px] pt-4">{title}</div>
+              <div className=" text-[16px] text-[#CFCFCF] max-w-[300px]">
+                {text}
+              </div>
             </div>
-
-            {/* Button */}
-            <a href={buttonLink}>
-              <button className="absolute bottom-5 right-5 rounded-full text-blue-600 bg-white px-4 py-4 group-hover:bg-blue-300 group-hover:text-white transition">
-                 <ArrowUpRight size={24}     className="transition-transform duration-500 group-hover:rotate-45"
-/>
-              </button>
-            </a>
 
           </div>
         </foreignObject>
 
         {/* Border */}
         <path
-          d=" M 0.54 0
-        Q 0.57 0 0.60 0.05
-        L 0.65 0.15
-        Q 0.68 0.18 0.72 0.15
-        L 1 0.15
-        Q 1 0.18 1 0.22
-        L 1 1
-        Q 0.98 1 0.95 1
-        L 0.05 1
-        Q 0 1 0 0.95
-        L 0 0.61
-        Q 0 0.57 0.03 0.55
-        L 0 0.05
-        Q 0 0 0.05 0
-        L 0.54 0
-        Z"
+          d="
+            M 199 0
+            Q 210 0 222 11
+            L 241 29
+            Q 251 32 266 33
+            L 370 33
+            Q 370 42 370 50
+            L 370 220
+            Q 362 220 351 220
+            L 19 220
+            Q 0 220 0 208
+            L 0 134
+            L 0 11
+            Q 0 0 19 0
+            L 199 0
+            Z
+          "
           fill="none"
-          stroke="rgba(255,255,255,0.3)"
+          stroke="#70A9FF"
           strokeWidth="2"
         />
 
       </svg>
-
     </div>
   );
 }

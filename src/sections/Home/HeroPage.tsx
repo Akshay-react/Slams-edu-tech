@@ -146,7 +146,7 @@ drop-shadow-[0_0_20px_rgba(0,150,255,0.25)]
   variants={word}
   className={`inline-block mr-4  ${
     isGradient
-      ? "bg-gradient-to-t from-[#548efa] via-blue-500 to-white bg-clip-text text-transparent bg-[length:100%_300%]"
+      ? "bg-gradient-to-t  from-blue-500 to-[#42b23c] bg-clip-text text-transparent bg-[length:100%_300%]"
       : ""
   }`}
   animate={

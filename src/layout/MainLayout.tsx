@@ -8,6 +8,7 @@ const MainLayout = () => {
       <Navbar />
 
       {/* Page Content */}
+      
       <Outlet />
     </div>
   );
