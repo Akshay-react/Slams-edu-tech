@@ -17,12 +17,12 @@ const Works = () => {
   as="button"
   className="custom-class"
   color="cyan"
-  speed="5s"
+  speed="3s"
     c1="from-gray-950"
     c2="via-gray-850"
     c3="to-gray-800"
 >
-   view more
+   View more
 </StarBorder>
           </div>
         </div>

@@ -5,6 +5,8 @@ export default {
     extend: {
       fontFamily: {
         outfit: ["Outfit", "sans-serif"],
+                plaster: ['Plaster', 'system-ui'],
+
       },
       animation: {
         "star-movement-bottom": "star-movement-bottom linear infinite",

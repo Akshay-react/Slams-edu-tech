@@ -3,11 +3,13 @@ import Section3D from "../../components/Section3D"
 import { Gem, Users, CircleCheck, Lightbulb } from "lucide-react"
 import ab1 from "../../assets/about/about1.png"
 import ab2 from "../../assets/about/about2.jpg"
+
+// import GlobeWithMouseAndScroll from "../../components/ButterflyScroll"
 const About = () => {
   return (
     <section className="relative px-6 pt-[32px] pb-10 min-h-[500px]">
   <Section3D />
-
+{/* <GlobeWithMouseAndScroll /> */}
 
 
       {/* MAIN GRID */}

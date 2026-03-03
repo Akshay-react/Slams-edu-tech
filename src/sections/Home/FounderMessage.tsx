@@ -98,7 +98,7 @@ const FoundersMessage: React.FC = () => {
               skilled workforce for the future.
             </p>
 
-            <div className="pt-2 sm:pt-3 lg:pt-4">
+            <div className="">
               <p className="text-gray-400">Warm regards,</p>
               <p className="text-white font-medium">
                 Aslam K A - Founder
@@ -111,7 +111,7 @@ const FoundersMessage: React.FC = () => {
 
 
         {/* RIGHT SIDE IMAGE */}
-        <div className="
+        <div className=" pt-8
           relative
           flex
           justify-center
@@ -140,7 +140,7 @@ const FoundersMessage: React.FC = () => {
             {/* Image */}
             <img
               src={ceo}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover "
               style={{ clipPath: "url(#founderClip)" }}
             />
 
@@ -174,6 +174,10 @@ const FoundersMessage: React.FC = () => {
         </div>
 
       </div>
+
+
+
+      
 
     </section>
   );
