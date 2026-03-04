@@ -47,15 +47,9 @@ const Robo = () => {
           {/* BACKGROUND PARTICLES */}
           <Particles
             className="absolute inset-0 z-0"
-            particleColors={["#ffffff"]}
-            particleCount={900}
-            particleSpread={20}
-            speed={0.1}
-            particleBaseSize={400}
-            moveParticlesOnHover
-            alphaParticles
-            disableRotation={false}
-            pixelRatio={1}
+            amplitude={4.3}
+    distance={0.9}
+    // enableMouseInteraction
           />
 
           {/* ROBOT IMAGE */}

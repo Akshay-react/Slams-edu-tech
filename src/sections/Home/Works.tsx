@@ -16,8 +16,8 @@ const Works = () => {
         <StarBorder
   as="button"
   className="custom-class"
-  color="cyan"
-  speed="3s"
+  color="blue"
+  speed="2s"
     c1="from-gray-950"
     c2="via-gray-850"
     c3="to-gray-800"

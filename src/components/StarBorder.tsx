@@ -43,7 +43,7 @@ const StarBorder = <T extends ElementType = "button">({
         }}
       >
         <div
-          className="absolute inset-[-150%] rounded-full blur-2xl opacity-70 animate-spin"
+          className="absolute inset-[-150%] rounded-full blur-2xl opacity-90 animate-spin"
           style={{
             background: `conic-gradient(from 0deg, transparent, ${color}, transparent)`,
             animationDuration: speed,
