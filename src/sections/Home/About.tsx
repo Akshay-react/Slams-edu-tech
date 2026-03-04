@@ -1,7 +1,8 @@
 import AboutCard from "../../components/AboutCard"
-import img3 from "../../assets/service3.jpg"
 import Section3D from "../../components/Section3D"
 import { Gem, Users, CircleCheck, Lightbulb } from "lucide-react"
+import ab1 from "../../assets/about/about1.png"
+import ab2 from "../../assets/about/about2.jpg"
 const About = () => {
   return (
     <section className="relative px-6 pt-[32px] pb-10 min-h-[500px]">
@@ -53,6 +54,189 @@ const About = () => {
 </div>
 
       </div>
+
+
+
+{/* big card */}
+
+    <section className="flex flex-col xl:flex-row pt-16 gap-12 justify-between px-6 xl:px-10 pb-10">
+
+  {/* LEFT CARD */}
+  <div className="pt-0  w-full">
+    <div className="relative w-full max-w-[850px] aspect-[850/700] mx-auto">
+
+      {/* SVG definition */}
+      <svg width="0" height="0">
+        <defs>
+          <clipPath id="missionClipLarge" clipPathUnits="userSpaceOnUse">
+            <path
+              d="
+                M 45 0
+                H 408
+                Q 430 0 448 18
+                L 544 105
+                Q 561 122 589 122
+                H 805
+                Q 850 122 850 169
+                V 653
+                Q 850 700 805 700
+                H 45
+                Q 0 700 0 653
+                V 47
+                Q 0 0 45 0
+                Z
+              "
+            />
+          </clipPath>
+        </defs>
+      </svg>
+
+      {/* Image */}
+      <img
+        src={ab2}
+        className="absolute inset-0 w-full h-full object-cover"
+        style={{ clipPath: "url(#missionClipLarge)" }}
+      />
+
+       {/* Overlay */}
+      <div className="absolute inset-0 bg-black/30"></div>
+
+      {/* TEXT CONTENT */}
+      <div className="absolute inset-0 flex flex-col justify-end  p-6 md:p-8 xl:p-10 text-white">
+        <div className="max-w-[90%] md:max-w-[500px] pt-4">
+          <h2 className="text-2xl md:text-3xl xl:text-4xl font-bold">
+            Our Mission
+          </h2>
+
+          <p className="mt-2 md:mt-4 text-sm md:text-base xl:text-lg leading-relaxed">
+            We strive to deliver innovative digital solutions that empower
+            businesses and create meaningful user experiences through
+            technology and design.
+          </p>
+        </div>
+      </div>
+
+      {/* Border */}
+      <svg
+        viewBox="0 0 850 700"
+        className="absolute inset-0 w-full h-full pointer-events-none"
+      >
+        <path
+          d="
+            M 45 0
+            H 408
+            Q 430 0 448 18
+            L 544 105
+            Q 561 122 589 122
+            H 805
+            Q 850 122 850 169
+            V 653
+            Q 850 700 805 700
+            H 45
+            Q 0 700 0 653
+            V 47
+            Q 0 0 45 0
+            Z
+          "
+          fill="none"
+          stroke="#ffffff"
+          strokeWidth="1"
+        />
+      </svg>
+    </div>
+  </div>
+
+  {/* RIGHT CARD */}
+  <div className="pt-0 xl:pt-[115px] w-full">
+    <div className="relative w-full max-w-[850px] aspect-[850/700] mx-auto">
+
+      {/* clipPath definition */}
+      <svg width="0" height="0">
+        <defs>
+          <clipPath id="missionClipMirrorUpsideLarge" clipPathUnits="userSpaceOnUse">
+            <path
+              transform="translate(850,700) scale(-1,-1)"
+              d="
+                M 45 0
+                H 408
+                Q 430 0 448 18
+                L 544 105
+                Q 561 122 589 122
+                H 805
+                Q 850 122 850 169
+                V 653
+                Q 850 700 805 700
+                H 45
+                Q 0 700 0 653
+                V 47
+                Q 0 0 45 0
+                Z
+              "
+            />
+          </clipPath>
+        </defs>
+      </svg>
+
+      {/* Image */}
+      <img
+        src={ab1}
+        className="absolute inset-0 w-full h-full object-cover"
+        style={{ clipPath: "url(#missionClipMirrorUpsideLarge)" }}
+      />
+
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/30"></div>
+
+      {/* TEXT CONTENT */}
+      <div className="absolute inset-0 flex flex-col justify-end  p-6 md:p-8 xl:p-10 text-white">
+        <div className="max-w-[90%] md:max-w-[500px] pb-[116px]">
+          <h2 className="text-2xl md:text-3xl xl:text-4xl font-bold">
+            Our Mission
+          </h2>
+
+          <p className="mt-2 md:mt-4 text-sm md:text-base xl:text-lg leading-relaxed">
+            We strive to deliver innovative digital solutions that empower
+            businesses and create meaningful user experiences through
+            technology and design.
+          </p>
+        </div>
+      </div>
+
+      {/* Border SVG */}
+      <svg
+        viewBox="0 0 850 700"
+        className="absolute inset-0 w-full h-full pointer-events-none"
+      >
+        <path
+          transform="translate(850,700) scale(-1,-1)"
+          d="
+            M 45 0
+            H 408
+            Q 430 0 448 18
+            L 544 105
+            Q 561 122 589 122
+            H 805
+            Q 850 122 850 169
+            V 653
+            Q 850 700 805 700
+            H 45
+            Q 0 700 0 653
+            V 47
+            Q 0 0 45 0
+            Z
+          "
+          fill="none"
+          stroke="white"
+          strokeWidth="1"
+        />
+      </svg>
+
+    </div>
+  </div>
+
+</section>
+
+
 
     </section>
   )

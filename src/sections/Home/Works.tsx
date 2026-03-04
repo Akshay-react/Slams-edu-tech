@@ -3,6 +3,7 @@ import WorksCard from '../../components/WorksCard';
 import img1 from "../../assets/works/works1.png"
 import img3 from "../../assets/works/works3.png"
 import img2 from "../../assets/works/works2.png"
+import img4 from "../../assets/works/works4.png"
 const Works = () => {
   return (
     <section className='bg-[#1F1F1F] px-10 pt-[112px]'>
@@ -30,24 +31,25 @@ const Works = () => {
 
               <div className="pt-10  pb-10 flex justify-between gap-3 items-end">
 
-            <WorksCard
-        image={img1}
-        name="Torch"
-        stack="Mobile App"
-      />
+         
             <WorksCard
         image={img2}
          name="Ziya Academy"
         stack="Website"
       />
             <WorksCard
-        image={img3}
-         name="JK Wave"
-        stack="Mobile App"
+        image={img4}
+         name="Juggle Laundry"
+        stack="Website"
       />
             <WorksCard
         image={img3}
-         name="JK Wave"
+         name="Slams Hunt"
+        stack="Mobile App"
+      />
+         <WorksCard
+        image={img1}
+        name="Torch"
         stack="Mobile App"
       />
          
