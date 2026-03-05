@@ -113,10 +113,10 @@ const Footer: React.FC = () => {
         bg-clip-text
       "
     >
-      <div className="absolute inset-0">
-        {/* React Bits Component Goes Here */}
+      {/* <div className="absolute inset-0">
+       
         <Particles />   
-      </div>
+      </div> */}
 
       SLAMS
     </div>

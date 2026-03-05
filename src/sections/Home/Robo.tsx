@@ -45,12 +45,12 @@ const Robo = () => {
         <div className="relative w-full aspect-[1920/700] overflow-hidden">
 
           {/* BACKGROUND PARTICLES */}
-          <Particles
+          {/* <Particles
             className="absolute inset-0 z-0"
             amplitude={4.3}
     distance={0.9}
-    // enableMouseInteraction
-          />
+    enableMouseInteraction
+          /> */}
 
           {/* ROBOT IMAGE */}
           <img
