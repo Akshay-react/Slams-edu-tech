@@ -10,7 +10,7 @@ import Footer from '../components/Footer';
 // import Deliver from '../sections/Home/Deliver';
 const Home = () => {
   return (
-   <div className="px-">
+   <div className="px-  ">
     <HeroPage />
     <Service />
     <Works />

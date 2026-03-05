@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import AboutCard from "../../components/AboutCard"
 import Section3D from "../../components/Section3D"
 import { Gem, Users, CircleCheck, Lightbulb } from "lucide-react"
@@ -6,12 +7,25 @@ import ab2 from "../../assets/about/about2.jpg"
 
 // import GlobeWithMouseAndScroll from "../../components/ButterflyScroll"
 const About = () => {
+   const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 1280);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsLargeScreen(window.innerWidth >= 1280);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <section className="relative px-6 pt-[32px] pb-10 min-h-[500px]">
-      {window.innerWidth < 1280 ? null :
-   <div className="">
-  <Section3D />
-</div>}
+     {isLargeScreen && (
+        <div>
+          <Section3D />
+        </div>
+      )}
 {/* <GlobeWithMouseAndScroll /> */}
 
 

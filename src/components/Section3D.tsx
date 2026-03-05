@@ -83,7 +83,7 @@ function Ring(): JSX.Element {
 
 export default function Section3D(): JSX.Element {
   return (
-<div className="absolute inset-0 pointer-events-none">      <Canvas camera={{ position: [0, 0, 20], fov: 50 }}>
+<div className="absolute inset-0 pointer-events-none">      <Canvas  camera={{ position: [0, 0, 20], fov: 50 }}>
 
         {/* THIS LINE FIXES THE STEEL LOOK */}
         <Environment preset="studio"/>
