@@ -21,7 +21,7 @@ const Service = () => {
   as={Link} to="/dashboard"
   className="custom-class"
   color="cyan"
-  speed="5s"
+  speed="2s"
    c1="from-black"
   c2="via-black"
   c3="to-gray-800"

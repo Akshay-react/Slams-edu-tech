@@ -1,4 +1,5 @@
 import vid from "../../assets/robovid.mp4"
+import AnimatedLinkButton from "../../components/AnimatedLinkButton";
 
 export default function HeroPage() {
   return (
@@ -47,14 +48,25 @@ export default function HeroPage() {
       <div className="absolute inset-0 bg-black/50 pointer-events-none" />
 <div className="absolute z-10 bottom-48 left-12 text-white ">        <p className="text-6xl px-12  font-bold uppercase leading-[60px]">Innovative <span className="text-6xl ">IT </span> Solutions <br /> for a Digital World</p>
         <p className="text-[20px] leading-[20px] pl-12 pt-4 font-medium max-w-[840px]">Slams Edu Tech delivers smart, scalable technology solutions that help businesses  grow faster, operate more efficiently, and stay ahead through continuous innovation.</p>
-        <div className="flex gap-4 pt-7 px-12">
-             <button className="px-6 py-2.5 rounded-full border border-white text-white text-[15px] font-medium hover:bg-white hover:text-black transition-all">
+        {/* <div className="flex gap-4 pt-7 px-12">
+             <button className="px-6 py-2.5 rounded-full border border-white text-white text-[15px] font-medium hover:bg-cyan-300 hover:text-black transition-all">
             Discover Our Services
           </button>
-           <button className="px-6 py-2.5 rounded-full border border-white text-white text-[15px] font-medium hover:bg-white hover:text-black transition-all">
+           <button className="px-6 py-2.5 rounded-full border border-white text-white text-[15px] font-medium hover:bg-cyan-300 hover:text-black transition-all">
             Apply for Internship
           </button>
-        </div>
+        </div> */}
+
+<div className="flex gap-4 pt-6 pl-12">
+  <AnimatedLinkButton to="/services">
+    Discover Our Services
+  </AnimatedLinkButton>
+
+  <AnimatedLinkButton to="/internship">
+    Apply for Internship
+  </AnimatedLinkButton>
+</div>
+
       </div>
     </section>
   )
