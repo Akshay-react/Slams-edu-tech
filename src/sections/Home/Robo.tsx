@@ -69,59 +69,61 @@ const Robo = () => {
           />
 
           {/* CARD (FIXED TO ROBOT HAND POSITION) */}
-          <div
-            className="
-              absolute z-10
-              flex gap-5
-              p-4
-              bg-white/10
-              backdrop-blur-sm
-              border border-white/20
-              rounded-2xl
-              shadow-lg
-            "
-            style={{
-              left: "52%",
-              top: "32%",
-              transform: "translate(-50%, -50%)",
-            }}
-          >
-            {/* LEFT STAT */}
-            <div className="text-center">
-              <p className="font-medium text-[40px] text-white">
-                <CountUp
-                  from={0}
-                  to={50}
-                  separator=""
-                  direction="up"
-                  duration={0.5}
-                />
-                +
-              </p>
+         <div
+  className="
+    absolute z-10
+    flex flex-col sm:flex-row
+    items-center
+    gap-3 sm:gap-5
+    p-3 sm:p-4
+    bg-white/10
+    backdrop-blur-sm
+    border border-white/20
+    rounded-2xl
+    shadow-lg
+  "
+  style={{
+    left: "50%",
+    top: "32%",
+    transform: "translate(-50%, -50%)",
+  }}
+>
+  {/* LEFT STAT */}
+  <div className="text-center">
+    <p className="font-medium text-[28px] sm:text-[32px] lg:text-[40px] text-white">
+      <CountUp
+        from={0}
+        to={50}
+        separator=""
+        direction="up"
+        duration={0.5}
+      />
+      +
+    </p>
 
-              <p className="font-medium text-[#ACACAC] text-[24px]">
-                Live Projects
-              </p>
-            </div>
+    <p className="font-medium text-[#ACACAC] text-[14px] sm:text-[18px] lg:text-[24px]">
+      Live Projects
+    </p>
+  </div>
 
-            {/* RIGHT STAT */}
-            <div className="text-center">
-              <p className="font-medium text-[40px] text-white">
-                <CountUp
-                  from={0}
-                  to={100}
-                  separator=","
-                  direction="up"
-                  duration={1}
-                />
-                %
-              </p>
+  {/* RIGHT STAT */}
+  <div className="text-center">
+    <p className="font-medium text-[28px] sm:text-[32px] lg:text-[40px] text-white">
+      <CountUp
+        from={0}
+        to={100}
+        separator=","
+        direction="up"
+        duration={1}
+      />
+      %
+    </p>
 
-              <p className="font-medium text-[#ACACAC] text-[24px]">
-                Client Satisfaction
-              </p>
-            </div>
-          </div>
+    <p className="font-medium text-[#ACACAC] text-[14px] sm:text-[18px] lg:text-[24px]">
+      Client Satisfaction
+    </p>
+  </div>
+</div>
 
         </div>
       </div>
