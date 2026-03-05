@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useRef } from "react";
 import vid from "../../assets/robovid.mp4";
 import Container from "../../components/Container";
+import AnimatedLinkButton from "../../components/AnimatedLinkButton";
 
 export default function HeroPage() {
   const sentence = {
@@ -36,6 +37,7 @@ export default function HeroPage() {
 
     const handleMouseMove = (e: React.MouseEvent) => {
       if (!ref.current) return;
+
       const { left, top, width, height } =
         ref.current.getBoundingClientRect();
 
@@ -69,7 +71,8 @@ export default function HeroPage() {
       <svg width="0" height="0">
         <defs>
           <clipPath id="heroClip" clipPathUnits="objectBoundingBox">
-            <path d="
+            <path
+              d="
               M0.025,0
               H0.975
               A0.025,0.025 0 0 1 1,0.025
@@ -82,7 +85,8 @@ export default function HeroPage() {
               V0.025
               A0.025,0.025 0 0 1 0.025,0
               Z
-            " />
+            "
+            />
           </clipPath>
         </defs>
       </svg>
@@ -136,7 +140,7 @@ export default function HeroPage() {
                       variants={word}
                       className={`inline-block mr-4 ${
                         isGradient
-                          ? "bg-gradient-to-t from-[#42b23c] via-blue-500 to-white bg-clip-text text-transparent bg-[length:100%_300%]"
+                          ? "bg-gradient-to-t from-[#42b23c] via-blue-500 to-white bg-clip-text text-transparent"
                           : ""
                       }`}
                       animate={
@@ -198,15 +202,15 @@ export default function HeroPage() {
             </motion.p>
 
             {/* Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1, duration: 0.6 }}
-              className="flex gap-4 pt-8"
-            >
-              <MagneticButton>Discover Our Services</MagneticButton>
-              <MagneticButton>Apply for Internship</MagneticButton>
-            </motion.div>
+            <div className="flex gap-4 pt-6 pl-12">
+              <AnimatedLinkButton to="/services">
+                Discover Our Services
+              </AnimatedLinkButton>
+
+              <AnimatedLinkButton to="/internship">
+                Apply for Internship
+              </AnimatedLinkButton>
+            </div>
 
           </div>
         </Container>

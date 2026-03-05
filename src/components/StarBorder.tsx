@@ -15,12 +15,12 @@ type StarBorderProps<T extends ElementType> = {
 const StarBorder = <T extends ElementType = "button">({
   as,
   className = "",
-  color = "white",
+  color = "#ffffff",
   c1 = "from-black",
   c2 = "via-gray-800",
   c3 = "to-gray-900",
-  speed = "6s",
-  thickness = 1,
+  speed = "3s",
+  thickness = 2,
   children,
   ...rest
 }: StarBorderProps<T>) => {
@@ -29,40 +29,38 @@ const StarBorder = <T extends ElementType = "button">({
   return (
     <Component
       className={`relative inline-block w-[130px] overflow-hidden rounded-[50px] ${className}`}
-     style={{
-  padding: 0,
-  ...(rest as any).style,
-}}
+      style={{
+        padding: 0,
+        ...(rest as any).style,
+      }}
       {...rest}
     >
-      {/* Bottom moving stars */}
+      {/* Smooth Rotating Glow Layer */}
       <div
-        className="absolute w-[300%] h-[50%] bottom-[-11px] right-[-250%] rounded-full animate-star-movement-bottom z-0"
+        className="absolute inset-0 z-0 rounded-[50px]"
         style={{
-          background: `repeating-radial-gradient(circle, ${color} 0 2px, transparent 80px 40px)`,
-          animationDuration: speed,
+          padding: thickness,
         }}
-      />
-
-      {/* Top moving stars */}
-      <div
-        className="absolute w-[300%] h-[50%] top-[-10px] left-[-250%] rounded-full animate-star-movement-top z-0"
-        style={{
-          background: `repeating-radial-gradient(circle, ${color} 0 2px, transparent 80px 40px)`,
-          animationDuration: speed,
-        }}
-      />
-
-      {/* Content */}
-      <div
-        className={`relative z-[1] bg-gradient-to-b ${c1} ${c2} ${c3} border border-gray-800 text-white text-center text-[16px] py-[16px] px-[26px] rounded-[20px]`}
-      style={{
-    margin: thickness,
-    padding: "10px 6px"
-  }} >
-        {children}
+      >
+        <div
+          className="absolute inset-[-150%] rounded-full blur-2xl opacity-90 animate-spin"
+          style={{
+            background: `conic-gradient(from 0deg, transparent, ${color}, transparent)`,
+            animationDuration: speed,
+          }}
+        />
       </div>
 
+      {/* Button Content */}
+      <div
+        className={`relative z-[1] bg-gradient-to-b ${c1} ${c2} ${c3} border border-gray-800 text-white text-center text-[16px] rounded-[20px]`}
+        style={{
+          margin: thickness,
+          padding: "10px 6px",
+        }}
+      >
+        {children}
+      </div>
     </Component>
   );
 };

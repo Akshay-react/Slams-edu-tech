@@ -7,7 +7,7 @@ export default function AboutCard({
   buttonLink = "#",
 }) {
   return (
-    <div className="w-full max-w-[370px] backdrop-blur-sm  aspect-[370/220] relative group ">
+    <div className="w-full max-w-[370px]  aspect-[370/220] relative group ">
       <svg
         viewBox="0 0 370 220"
         className="w-full h-full"
@@ -40,28 +40,26 @@ export default function AboutCard({
 
         {/* Content */}
         <foreignObject
-          x="0"
-          y="0"
-          width="370"
-          height="270"
-          clipPath="url(#customClip)"
-        >
-          <div className="w-full h-full relative bg-transparent">
+  x="0"
+  y="0"
+  width="370"
+  height="220"
+  clipPath="url(#customClip)"
+>
+  {/* THIS div gets blur and is clipped */}
+  <div className="w-full h-full backdrop-blur-sm bg-white/5 relative">
 
-            {/* Transparent overlay (optional, keeps structure same) */}
-            <div className="absolute inset-0"></div>
+    {/* Text */}
+    <div className="absolute bottom-20 left-5 text-white">
+      <div>{icon}</div>
+      <div className="font-sm text-[20px] pt-4">{title}</div>
+      <div className="text-[16px] text-[#CFCFCF] max-w-[300px]">
+        {text}
+      </div>
+    </div>
 
-            {/* Text */}
-            <div className="absolute bottom-20 left-5  text-white">
-                <div className="">{icon}</div>
-              <div className="font-sm text-[20px] pt-4">{title}</div>
-              <div className=" text-[16px] text-[#CFCFCF] max-w-[300px]">
-                {text}
-              </div>
-            </div>
-
-          </div>
-        </foreignObject>
+  </div>
+</foreignObject>
 
         {/* Border */}
         <path
