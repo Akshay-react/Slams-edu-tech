@@ -1,4 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
+
 export default function CustomShapeCard({
   image,
   title,
@@ -7,6 +9,8 @@ export default function CustomShapeCard({
   
 }) {
   return (
+    <Link to={buttonLink} className="block w-full max-w-[390px]">
+
     <div className="w-full max-w-[390px] aspect-[390/396] relative group">
 
       <svg
@@ -70,5 +74,6 @@ export default function CustomShapeCard({
       </svg>
 
     </div>
+    </Link>
   );
 }

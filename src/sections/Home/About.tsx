@@ -3,11 +3,16 @@ import Section3D from "../../components/Section3D"
 import { Gem, Users, CircleCheck, Lightbulb } from "lucide-react"
 import ab1 from "../../assets/about/about1.png"
 import ab2 from "../../assets/about/about2.jpg"
+
+// import GlobeWithMouseAndScroll from "../../components/ButterflyScroll"
 const About = () => {
   return (
     <section className="relative px-6 pt-[32px] pb-10 min-h-[500px]">
+      {window.innerWidth < 1280 ? null :
+   <div className="">
   <Section3D />
-
+</div>}
+{/* <GlobeWithMouseAndScroll /> */}
 
 
       {/* MAIN GRID */}
@@ -61,72 +66,113 @@ const About = () => {
 
 
 {/* big card */}
+<section className="flex flex-col xl:flex-row pt-16 gap-12 justify-between px-6 xl:px-10 pb-10">
 
-    <section className="flex flex-col xl:flex-row pt-16 gap-12 justify-between px-6 xl:px-10 pb-10">
+{/* LEFT CARD */}
+<div className="pt-0 w-full">
 
-  {/* LEFT CARD */}
-  <div className="pt-0  w-full">
+<div className="relative w-full max-w-[850px] aspect-[850/700] mx-auto">
 
-    <div className="relative w-full max-w-[850px] aspect-[850/700] mx-auto">
+<svg width="0" height="0">
+<defs>
 
-      {/* SVG definition */}
-      <svg width="0" height="0">
-        <defs>
-          <clipPath id="missionClipLarge" clipPathUnits="userSpaceOnUse">
-            <path
-              d="
-                M 45 0
-                H 408
-                Q 430 0 448 18
-                L 544 105
-                Q 561 122 589 122
-                H 805
-                Q 850 122 850 169
-                V 653
-                Q 850 700 805 700
-                H 45
-                Q 0 700 0 653
-                V 47
-                Q 0 0 45 0
-                Z
-              "
-            />
-          </clipPath>
-        </defs>
-      </svg>
+<clipPath id="missionClipLarge" clipPathUnits="objectBoundingBox">
+<path
+transform="scale(0.00117647,0.00142857)"
+d="
+M 45 0
+H 408
+Q 430 0 448 18
+L 544 105
+Q 561 122 589 122
+H 805
+Q 850 122 850 169
+V 653
+Q 850 700 805 700
+H 45
+Q 0 700 0 653
+V 47
+Q 0 0 45 0
+Z
+"
+/>
+</clipPath>
 
-      {/* Image */}
-      <img
-        src={ab2}
-        className="absolute inset-0 w-full h-full object-cover"
-        style={{ clipPath: "url(#missionClipLarge)" }}
-      />
+</defs>
+</svg>
 
-       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/30"></div>
+{/* Image */}
+<img
+src={ab2}
+className="absolute inset-0 w-full h-full object-cover"
+style={{ clipPath: "url(#missionClipLarge)" }}
+/>
 
-      {/* TEXT CONTENT */}
-      <div className="absolute inset-0 flex flex-col justify-end  p-6 md:p-8 xl:p-10 text-white">
-        <div className="max-w-[90%] md:max-w-[500px] pt-4">
-          <h2 className="text-2xl md:text-3xl xl:text-4xl font-bold">
-            Our Mission
-          </h2>
+{/* Overlay */}
+<div className="absolute inset-0 bg-black/30"></div>
 
-          <p className="mt-2 md:mt-4 text-sm md:text-base xl:text-lg leading-relaxed">
-            We strive to deliver innovative digital solutions that empower
-            businesses and create meaningful user experiences through
-            technology and design.
-          </p>
-        </div>
-      </div>
+{/* TEXT */}
+<div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8 xl:p-10 text-white">
+<div className="max-w-[90%] md:max-w-[500px] pt-4">
 
-      {/* Border */}
-      <svg
-        viewBox="0 0 850 700"
-        className="absolute inset-0 w-full h-full pointer-events-none"
-      >
-        <path
-          d="
+<h2 className="text-2xl md:text-3xl xl:text-4xl font-bold">
+Our Mission
+</h2>
+
+<p className="mt-2 md:mt-4 text-sm md:text-base xl:text-lg leading-relaxed">
+We strive to deliver innovative digital solutions that empower
+businesses and create meaningful user experiences through
+technology and design.
+</p>
+
+</div>
+</div>
+
+{/* BORDER */}
+<svg
+viewBox="0 0 850 700"
+className="absolute inset-0 w-full h-full pointer-events-none"
+preserveAspectRatio="none"
+>
+<path
+d="
+M 45 0
+H 408
+Q 430 0 448 18
+L 544 105
+Q 561 122 589 122
+H 805
+Q 850 122 850 169
+V 653
+Q 850 700 805 700
+H 45
+Q 0 700 0 653
+V 47
+Q 0 0 45 0
+Z
+"
+fill="none"
+stroke="#ffffff"
+strokeWidth="1"
+/>
+</svg>
+
+</div>
+</div>
+
+
+{/* RIGHT CARD */}
+<div className="pt-0 xl:pt-[115px] w-full">
+
+  <div className="relative w-full max-w-[850px] aspect-[850/700] mx-auto">
+
+    <svg width="0" height="0">
+      <defs>
+
+        <clipPath id="missionClipMirrorUpsideLarge" clipPathUnits="objectBoundingBox">
+          <path
+            transform="translate(1,1) scale(-1,-1) scale(0.00117647,0.00142857)"
+            d="
             M 45 0
             H 408
             Q 430 0 448 18
@@ -141,105 +187,78 @@ const About = () => {
             V 47
             Q 0 0 45 0
             Z
-          "
-          fill="none"
-          stroke="#ffffff"
-          strokeWidth="1"
-        />
-      </svg>
-    </div>
-  </div>
+            "
+          />
+        </clipPath>
 
-  {/* RIGHT CARD */}
-  <div className="pt-0 xl:pt-[115px] w-full">
-    <div className="relative w-full max-w-[850px] aspect-[850/700] mx-auto">
+      </defs>
+    </svg>
 
-      {/* clipPath definition */}
-      <svg width="0" height="0">
-        <defs>
-          <clipPath id="missionClipMirrorUpsideLarge" clipPathUnits="userSpaceOnUse">
-            <path
-              transform="translate(850,700) scale(-1,-1)"
-              d="
-                M 45 0
-                H 408
-                Q 430 0 448 18
-                L 544 105
-                Q 561 122 589 122
-                H 805
-                Q 850 122 850 169
-                V 653
-                Q 850 700 805 700
-                H 45
-                Q 0 700 0 653
-                V 47
-                Q 0 0 45 0
-                Z
-              "
-            />
-          </clipPath>
-        </defs>
-      </svg>
+    {/* Image */}
+    <img
+      src={ab1}
+      className="absolute inset-0 w-full h-full object-cover"
+      style={{ clipPath: "url(#missionClipMirrorUpsideLarge)" }}
+    />
 
-      {/* Image */}
-      <img
-        src={ab1}
-        className="absolute inset-0 w-full h-full object-cover"
-        style={{ clipPath: "url(#missionClipMirrorUpsideLarge)" }}
-      />
+    {/* Overlay */}
+    <div
+      className="absolute inset-0 bg-black/30"
+      style={{ clipPath: "url(#missionClipMirrorUpsideLarge)" }}
+    ></div>
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/30"></div>
+    {/* TEXT */}
+    <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8 xl:p-10 text-white">
+      <div className="max-w-[90%] md:max-w-[500px] pb-[116px]">
 
-      {/* TEXT CONTENT */}
-      <div className="absolute inset-0 flex flex-col justify-end  p-6 md:p-8 xl:p-10 text-white">
-        <div className="max-w-[90%] md:max-w-[500px] pb-[116px]">
-          <h2 className="text-2xl md:text-3xl xl:text-4xl font-bold">
-            Our Mission
-          </h2>
+        <h2 className="text-2xl md:text-3xl xl:text-4xl font-bold">
+          Our Mission
+        </h2>
 
-          <p className="mt-2 md:mt-4 text-sm md:text-base xl:text-lg leading-relaxed">
-            We strive to deliver innovative digital solutions that empower
-            businesses and create meaningful user experiences through
-            technology and design.
-          </p>
-        </div>
+        <p className="mt-2 md:mt-4 text-sm md:text-base xl:text-lg leading-relaxed">
+          We strive to deliver innovative digital solutions that empower
+          businesses and create meaningful user experiences through
+          technology and design.
+        </p>
+
       </div>
-
-      {/* Border SVG */}
-      <svg
-        viewBox="0 0 850 700"
-        className="absolute inset-0 w-full h-full pointer-events-none"
-      >
-        <path
-          transform="translate(850,700) scale(-1,-1)"
-          d="
-            M 45 0
-            H 408
-            Q 430 0 448 18
-            L 544 105
-            Q 561 122 589 122
-            H 805
-            Q 850 122 850 169
-            V 653
-            Q 850 700 805 700
-            H 45
-            Q 0 700 0 653
-            V 47
-            Q 0 0 45 0
-            Z
-          "
-          fill="none"
-          stroke="white"
-          strokeWidth="1"
-        />
-      </svg>
-
     </div>
+
+    {/* BORDER */}
+    <svg
+      viewBox="0 0 850 700"
+      className="absolute inset-0 w-full h-full pointer-events-none"
+      preserveAspectRatio="none"
+    >
+      <path
+        transform="translate(850,700) scale(-1,-1)"
+        d="
+        M 45 0
+        H 408
+        Q 430 0 448 18
+        L 544 105
+        Q 561 122 589 122
+        H 805
+        Q 850 122 850 169
+        V 653
+        Q 850 700 805 700
+        H 45
+        Q 0 700 0 653
+        V 47
+        Q 0 0 45 0
+        Z
+        "
+        fill="none"
+        stroke="white"
+        strokeWidth="1"
+      />
+    </svg>
+
   </div>
+
+</div>
 
 </section>
-
 
 
     </section>

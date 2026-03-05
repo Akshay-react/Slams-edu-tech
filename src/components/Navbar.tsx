@@ -1,5 +1,6 @@
-import React from "react";
 import GooeyNav from "./GooeyNav ";
+import React, { useEffect, useState } from "react";
+
 
 const Navbar: React.FC = () => {
 
@@ -11,9 +12,28 @@ const Navbar: React.FC = () => {
     { label: "About Us", href: "#about" },
     { label: "Contact Us", href: "#contact" },
   ];
+   const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 120) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-transparent">
+    <header className={`fixed top-0 left-0 w-full z-50 bg-transparent transition-all duration-300 ${
+        scrolled
+          ? "bg-black/80 backdrop-blur-md shadow-lg"
+          : "bg-transparent"
+      }`}>
       <div className="max-w-[1440px] mx-auto px-8 py-5 flex items-center justify-between">
 
         {/* Logo */}

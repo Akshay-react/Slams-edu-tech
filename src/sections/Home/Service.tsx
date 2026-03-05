@@ -26,7 +26,7 @@ const Service = () => {
   c2="via-black"
   c3="to-gray-800"
 >
-   view more
+   View more
 </StarBorder>
 
 
