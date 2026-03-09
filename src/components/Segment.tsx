@@ -187,7 +187,7 @@ const Segment = ({
         >
           <path d={maskPath} />
         </clipPath>
-      </defs>
+      </defs> 
 
       <g
         ref={ref}
@@ -200,7 +200,7 @@ const Segment = ({
         `}
         clipPath={`url(#radialClip-${index})`}
       >
-        <path d={segmentPath} fill="#C5C5C5" />
+        <path d={segmentPath} fill="#a2a1a0" />
 
         <g clipPath={`url(#clip-${index})`}>
           <g

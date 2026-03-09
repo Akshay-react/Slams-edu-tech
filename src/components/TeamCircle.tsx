@@ -101,7 +101,7 @@ useEffect(() => {
   className="w-full h-full"
   animate={
     inertia
-      ? { rotate: [0, 2, 0] }
+      ? { rotate: [0, 4, 0] }
       : { rotate: 0 }
   }
   transition={{

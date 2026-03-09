@@ -44,7 +44,7 @@ export default function CustomShapeCard({
             />
 
             {/* Overlay */}
-            <div className="absolute inset-0 bg-black/40"></div>
+            <div className="absolute inset-0 bg-black/20"></div>
 
             {/* Text */}
             <div className="absolute bottom-20 left-5 text-white ">

@@ -58,7 +58,7 @@ export default function HeroPage() {
         </div> */}
 
 <div className="flex gap-4 pt-6 pl-12">
-  <AnimatedLinkButton to="/services">
+  <AnimatedLinkButton to="/service">
     Discover Our Services
   </AnimatedLinkButton>
 
