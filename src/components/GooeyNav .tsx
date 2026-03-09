@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
-
+import { Link } from 'react-router-dom';
 interface GooeyNavItem {
   label: string;
   href: string;
@@ -300,23 +300,34 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
               textShadow: '0 1px 1px hsl(205deg 30% 10% / 0.2)'
             }}
           >
-            {items.map((item, index) => (
-              <li
-                key={index}
-                className={`rounded-full relative cursor-pointer transition-[background-color_color_box-shadow] duration-300 ease shadow-[0_0_0.5px_1.5px_transparent] text-white ${
-                  activeIndex === index ? 'active' : ''
-                }`}
-              >
-                <a
-                  href={item.href}
-                  onClick={e => handleClick(e, index)}
-                  onKeyDown={e => handleKeyDown(e, index)}
-                  className="outline-none py-[0.6em] px-[1em] inline-block"
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))}
+          {items.map((item, index) => (
+  <li
+    key={index}
+    className={`rounded-full relative cursor-pointer transition-[background-color_color_box-shadow] duration-300 ease shadow-[0_0_0.5px_1.5px_transparent] text-white ${
+      activeIndex === index ? "active" : ""
+    }`}
+  >
+    {item.to ? (
+      <Link
+        to={item.to}
+        onClick={(e) => handleClick(e, index)}
+        onKeyDown={(e) => handleKeyDown(e, index)}
+        className="outline-none py-[0.6em] px-[1em] inline-block"
+      >
+        {item.label}
+      </Link>
+    ) : (
+      <a
+        href={item.href}
+        onClick={(e) => handleClick(e, index)}
+        onKeyDown={(e) => handleKeyDown(e, index)}
+        className="outline-none py-[0.6em] px-[1em] inline-block"
+      >
+        {item.label}
+      </a>
+    )}
+  </li>
+))}
           </ul>
         </nav>
         <span className="effect filter" ref={filterRef} />

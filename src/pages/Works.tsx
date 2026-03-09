@@ -9,9 +9,11 @@ import img7 from "../assets/works/works6.png"
 import img8 from "../assets/works/works7.png"
 import img9 from "../assets/works/works8.png"
 import img10 from "../assets/works/works10.png"
+import { Link } from 'react-router-dom';
+import { projects } from '@/data/projects';
 const Works = () => {
   return (
-<section className='bg-[#1F1F1F] px-10 pt-[112px]'>
+<section className=' px-10 pt-[112px]'>
 
  <p className="font-medium text-[24px] text-[#70A9FF]">Works</p>
       <div className="flex justify-between">
@@ -25,12 +27,16 @@ const Works = () => {
 
 
        <div className="flex justify-between gap-6 items-end pt-10 grid grid-cols-4">
-
-          <WorksCard
-        image={img4}
-         name="Juggle Laundry"
-        stack="Website"
+  {projects.map((project, index) => (
+    <Link key={project.id} to={`/project/${project.id}`}>
+      <WorksCard
+        image={img4} // temporary image
+        name={project.title}
+        stack={project.subtitle}
       />
+    </Link>
+  ))}
+
               <WorksCard
     image={img3}
      name="Slams Hunt"

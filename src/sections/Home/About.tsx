@@ -20,7 +20,7 @@ const About = () => {
   }, []);
 
   return (
-    <section className="relative px-6 pt-[32px] pb-10 min-h-[500px]">
+    <section id="about" className="relative px-6 pt-[32px] pb-10 min-h-[500px]">
      {isLargeScreen && (
         <div>
           <Section3D />
@@ -226,13 +226,11 @@ strokeWidth="1"
       <div className="max-w-[90%] md:max-w-[500px] pb-[116px]">
 
         <h2 className="text-2xl md:text-3xl xl:text-4xl font-bold">
-          Our Mission
+          Our Vision
         </h2>
 
         <p className="mt-2 md:mt-4 text-sm md:text-base xl:text-lg leading-relaxed">
-          We strive to deliver innovative digital solutions that empower
-          businesses and create meaningful user experiences through
-          technology and design.
+          We aim to be a trusted IT and training partner, empowering businesses and individuals with innovative technology and industry-ready skills for meaningful digital experiences .
         </p>
 
       </div>

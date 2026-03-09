@@ -6,6 +6,7 @@ import {
   FaLinkedinIn,
 } from "react-icons/fa";
 import { FiMapPin, FiPhone, FiMail } from "react-icons/fi";
+import Loop from "./scrolllogo/Loop";
 
 const Footer: React.FC = () => {
   return (
@@ -81,7 +82,7 @@ const Footer: React.FC = () => {
 <div className="relative mt-2 mb-4">
 
   {/* Outline Text */}
-  <h1
+  {/* <h1
     className="
       flex items-center justify-center
       font-bold tracking-widest
@@ -92,10 +93,10 @@ const Footer: React.FC = () => {
     "
   >
     SLAMS
-  </h1>
+  </h1> */}
 
   {/* Animated Layer Clipped To Text */}
-  <div
+  {/* <div
     className="
       absolute inset-0
       flex items-center justify-center
@@ -113,15 +114,14 @@ const Footer: React.FC = () => {
         bg-clip-text
       "
     >
-      {/* <div className="absolute inset-0">
-       
-        <Particles />   
-      </div> */}
+     
 
       SLAMS
     </div>
-  </div>
-
+  </div> */}
+  <div className="p-4">
+<Loop/>
+</div>
 </div>
 
       {/* Bottom Bar */}

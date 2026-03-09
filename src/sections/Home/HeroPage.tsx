@@ -3,7 +3,7 @@ import AnimatedLinkButton from "../../components/AnimatedLinkButton";
 
 export default function HeroPage() {
   return (
-    <section className="relative w-full h-screen overflow-hidden px-6">
+    <section id="hero" className="relative w-full h-screen overflow-hidden px-6">
 
       {/* SVG clipPath responsive */}
       <svg width="0" height="0">
@@ -45,7 +45,7 @@ export default function HeroPage() {
       </video>
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/50 pointer-events-none" />
+      <div className="absolute inset-0 bg-black/20 pointer-events-none" />
 <div className="absolute z-10 bottom-48 left-12 text-white ">        <p className="text-6xl px-12  font-bold uppercase leading-[60px]">Innovative <span className="text-6xl ">IT </span> Solutions <br /> for a Digital World</p>
         <p className="text-[20px] leading-[20px] pl-12 pt-4 font-medium max-w-[840px]">Slams Edu Tech delivers smart, scalable technology solutions that help businesses  grow faster, operate more efficiently, and stay ahead through continuous innovation.</p>
         {/* <div className="flex gap-4 pt-7 px-12">

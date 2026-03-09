@@ -7,7 +7,7 @@ import StarBorder from "../../components/StarBorder";
 import { Link } from "react-router-dom";
 const Service = () => {
   return (
-    <section className="px-10 font-outfit pb-16 pt-10">
+    <section id="service" className="px-10 font-outfit pb-16 pt-10">
       <p className="font-medium text-[24px] text-gray-400">/service we offer</p>
       <div className="flex justify-between">
       <p className="pt-4 font-medium text-5xl">Complete IT Solutions for <br />

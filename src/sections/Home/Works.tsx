@@ -7,7 +7,7 @@ import img4 from "../../assets/works/works4.png"
 import { Link } from "react-router-dom";
 const Works = () => {
   return (
-    <section className='bg-[#1F1F1F] px-10 pt-[112px]'>
+    <section id="works" className='bg-[#1F1F1F] px-10 pt-[112px]'>
 
  <p className="font-medium text-[24px] text-gray-400">/ Our Works</p>
       <div className="flex justify-between">
@@ -15,7 +15,7 @@ const Works = () => {
       <span className="text-blue-400"> Digital World </span></p>
       <div className="pt-4">
         <StarBorder
-  as={Link} to="/Works"
+  as={Link} to="/works"
   className="custom-class"
   color="cyan"
   speed="2s"
