@@ -3,7 +3,7 @@ import flowerBg from "../../assets/meetourteambg.svg";
 
 const Team = () => {
   return (
-    <section className="relative py-32 px-10 font-outfit overflow-hidden bg-black">
+    <section className="relative py-32 px-5 font-outfit overflow-hidden bg-black">
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-20">
 
         {/* LEFT SIDE - Circle */}
@@ -18,8 +18,8 @@ const Team = () => {
           <img
             src={flowerBg}
             alt=""
-            className="absolute -right-40 top-1/2 -translate-y-1/2 
-                       w-[600px] opacity-40 pointer-events-none select-none"
+            className="absolute right-60 top-1/2 -translate-y-1/2 
+                       w-[752px]  pointer-events-none select-none"
           />
 
           {/* Content */}
