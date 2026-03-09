@@ -155,7 +155,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
   --color-1: #ffffff;
 --color-2: #398EFE;
 --color-3: #111111;
---color-4: #398EFE;
+--color-4:  #398EFE;
 }
           .effect {
             position: absolute;

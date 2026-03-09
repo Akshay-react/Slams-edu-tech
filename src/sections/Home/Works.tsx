@@ -4,6 +4,7 @@ import img1 from "../../assets/works/works1.png"
 import img3 from "../../assets/works/works3.png"
 import img2 from "../../assets/works/works2.png"
 import img4 from "../../assets/works/works4.png"
+import { Link } from "react-router-dom";
 const Works = () => {
   return (
     <section className='bg-[#1F1F1F] px-10 pt-[112px]'>
@@ -14,9 +15,9 @@ const Works = () => {
       <span className="text-blue-400"> Digital World </span></p>
       <div className="pt-4">
         <StarBorder
-  as="button"
+  as={Link} to="/Works"
   className="custom-class"
-  color="blue"
+  color="cyan"
   speed="2s"
     c1="from-gray-950"
     c2="via-gray-850"

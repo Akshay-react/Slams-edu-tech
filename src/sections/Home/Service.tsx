@@ -18,7 +18,7 @@ const Service = () => {
           </button> */}
 
           <StarBorder
-  as={Link} to="/dashboard"
+  as={Link} to="/service"
   className="custom-class"
   color="cyan"
   speed="2s"

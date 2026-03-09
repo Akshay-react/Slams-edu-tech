@@ -57,7 +57,8 @@ clipPath={`url(#${clipId})`}        >
             />
 
             {/* Overlay */}
-            <div className="absolute inset-0 bg-black/40"></div>
+            {/* <div className="absolute inset-0 bg-black/40"></div> */}
+            <div className="absolute inset-0 "></div>
 
             {/* Text */}
            
