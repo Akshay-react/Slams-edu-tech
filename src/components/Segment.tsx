@@ -106,8 +106,16 @@
 import { useEffect, useState, useRef } from "react";
 import { animate,  } from "framer-motion";
 
+interface TeamMember {
+  id: number;
+  name: string;
+  role: string;
+}
+
 interface SegmentProps {
   member: string;
+  memberData: TeamMember;
+onHoverMember: (member: TeamMember | null) => void;
   index: number;
   seg: { angle: number; radius: number; offsetX: number; offsetY: number };
   img: { offsetX: number; offsetY: number; rotate: number; scale: number };
@@ -128,6 +136,9 @@ const Segment = ({
   pivotCX,
   pivotCY,
   startAnimation,
+  memberData,
+  onHoverMember,
+  
 }: SegmentProps) => {
   const [sweep, setSweep] = useState(0);
   const [completed, setCompleted] = useState(false);
@@ -180,6 +191,7 @@ const Segment = ({
 
   return (
     <>
+   
       <defs>
         <clipPath
           id={`radialClip-${index}`}
@@ -189,18 +201,22 @@ const Segment = ({
         </clipPath>
       </defs> 
 
-      <g
-        ref={ref}
-        transform={`
-          translate(${center}, ${center})
-          rotate(${seg.angle})
-          translate(${seg.radius},0)
-          translate(${ -pivotCX + seg.offsetX },
-                    ${ -pivotCY + seg.offsetY })
-        `}
-        clipPath={`url(#radialClip-${index})`}
-      >
-        <path d={segmentPath} fill="#a2a1a0" />
+    <g
+  ref={ref}
+  className="team-segment"
+  data-index={index}
+  onMouseEnter={() => onHoverMember(memberData)}
+onMouseLeave={() => onHoverMember(null)}
+  transform={`
+    translate(${center}, ${center})
+    rotate(${seg.angle})
+    translate(${seg.radius},0)
+    translate(${ -pivotCX + seg.offsetX },
+              ${ -pivotCY + seg.offsetY })
+  `}
+  clipPath={`url(#radialClip-${index})`}
+>
+        <path d={segmentPath} className="segment-shape" fill="#a2a1a0" />
 
         <g clipPath={`url(#clip-${index})`}>
           <g
@@ -219,6 +235,7 @@ const Segment = ({
           </g>
         </g>
       </g>
+     
     </>
   );
 };

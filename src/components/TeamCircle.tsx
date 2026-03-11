@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import member1 from "../assets/member1.png";
 import member2 from "../assets/member2.png";
 import member3 from "../assets/member3.png";
@@ -6,10 +6,14 @@ import member4 from "../assets/member4.png";
 import member5 from "../assets/member5.png";
 import member6 from "../assets/member6.png";
 
-import Segment from "./Segment"; // make sure path is correct
+import Segment from "./Segment";
 import { useEffect, useRef, useState } from "react";
-import { useInView } from "framer-motion";
 
+interface TeamMember {
+  id: number;
+  name: string;
+  role: string;
+}
 
 const members = [
   member1,
@@ -18,6 +22,15 @@ const members = [
   member4,
   member5,
   member6,
+];
+
+const teamMembers: TeamMember[] = [
+  { id: 1, name: "Arjun Nair", role: "Lead Product Designer" },
+  { id: 2, name: "Neha Sharma", role: "Senior Frontend Engineer" },
+  { id: 3, name: "Rahul Menon", role: "Backend Architect" },
+  { id: 4, name: "Aisha Khan", role: "UX Researcher" },
+  { id: 5, name: "David Joseph", role: "Product Manager" },
+  { id: 6, name: "Maya Patel", role: "Visual Designer" }
 ];
 
 const imageSettings = [
@@ -61,58 +74,60 @@ C118.803 25.3897 120.563 19.1962 125.48 16.5178
 Z
 `;
 
-const TeamCircle = () => {
+interface TeamCircleProps {
+  setActiveMember: (member: TeamMember | null) => void;
+}
+
+const TeamCircle: React.FC<TeamCircleProps> = ({ setActiveMember }) => {
+
   const center = 350;
   const pivotCX = 105;
   const pivotCY = 155;
-  
-  
+
   const containerRef = useRef(null);
-const isInView = useInView(containerRef, {
-  once: true,
-  amount: 0.4,
-});
 
-const [inertia, setInertia] = useState(false);
+  const isInView = useInView(containerRef, {
+    once: true,
+    amount: 0.4,
+  });
 
-useEffect(() => {
-  if (!isInView) return;
+  const [inertia, setInertia] = useState(false);
 
-  const timer = setTimeout(() => {
-    setInertia(true);
-  }, 1000); // slightly after sweep duration (3.2s)
+  useEffect(() => {
+    if (!isInView) return;
 
-  return () => clearTimeout(timer);
-}, [isInView]);
+    const timer = setTimeout(() => {
+      setInertia(true);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, [isInView]);
 
   return (
-  <motion.div
-  ref={containerRef}
-  className="w-[750px] h-[750px]"
-  initial={{ opacity: 0, y: 80 }}
-  animate={isInView ? { opacity: 1, y: 0 } : {}}
-  transition={{
-    duration: 1.2,
-    ease: [0.22, 1, 0.36, 1],
-  }}
->
-  <motion.svg
-  viewBox="0 0 750 750"
-  className="w-full h-full"
-  animate={
-    inertia
-      ? { rotate: [0, 4, 0] }
-      : { rotate: 0 }
-  }
-  transition={{
-    duration: 1,
-    ease: [0.33, 1, 0.68, 1],
-  }}
-  style={{ originX: 0.5, originY: 0.5 }}
->
-      
-        
-        {/* Static Clip Paths for Images */}
+    <motion.div
+      ref={containerRef}
+      className="w-[750px] h-[750px] relative"
+      initial={{ opacity: 0, y: 80 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{
+        duration: 1.2,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+    >
+
+     
+
+      <motion.svg
+        viewBox="0 0 750 750"
+        className="w-[750px] h-[750px]"
+        animate={inertia ? { rotate: [0, 4, 0] } : { rotate: 0 }}
+        transition={{
+          duration: 1,
+          ease: [0.33, 1, 0.68, 1],
+        }}
+        style={{ transformOrigin: "50% 50%" }}
+      >
+
         <defs>
           {members.map((_, i) => (
             <clipPath
@@ -125,11 +140,11 @@ useEffect(() => {
           ))}
         </defs>
 
-        {/* Render Segments */}
         {members.map((member, index) => (
           <Segment
             key={index}
             member={member}
+            memberData={teamMembers[index]}
             index={index}
             seg={segmentSettings[index]}
             img={imageSettings[index]}
@@ -138,9 +153,12 @@ useEffect(() => {
             pivotCX={pivotCX}
             pivotCY={pivotCY}
             startAnimation={isInView}
+            onHoverMember={setActiveMember}
           />
         ))}
+
       </motion.svg>
+
     </motion.div>
   );
 };

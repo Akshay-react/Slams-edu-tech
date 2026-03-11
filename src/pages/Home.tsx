@@ -11,7 +11,7 @@ import ContactSection from '../sections/Home/GetInTouch';
 const Home = () => {
   return (
    <div className="">
-  
+    
     <HeroPage />
     <Service />
     <Works />
