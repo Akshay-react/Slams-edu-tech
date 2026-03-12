@@ -13,24 +13,46 @@ interface TeamMember {
   id: number;
   name: string;
   role: string;
+  image: string;
 }
 
-const members = [
-  member1,
-  member2,
-  member3,
-  member4,
-  member5,
-  member6,
-];
-
 const teamMembers: TeamMember[] = [
-  { id: 1, name: "Arjun Nair", role: "Lead Product Designer" },
-  { id: 2, name: "Neha Sharma", role: "Senior Frontend Engineer" },
-  { id: 3, name: "Rahul Menon", role: "Backend Architect" },
-  { id: 4, name: "Aisha Khan", role: "UX Researcher" },
-  { id: 5, name: "David Joseph", role: "Product Manager" },
-  { id: 6, name: "Maya Patel", role: "Visual Designer" }
+  {
+    id: 1,
+    name: "Anugrah Sivadasan",
+    role: "Frontend Developer",
+    image: member1
+  },
+  {
+    id: 2,
+    name: "Jesna",
+    role: "Finance Head",
+    image: member2
+  },
+  {
+    id: 3,
+    name: "Ashvin Kunniri",
+    role: "AI/ML Engineer",
+    image: member3
+  },
+  {
+    id: 4,
+    name: "Akshay",
+    role: "Frontend Developer",
+    image: member4
+  },
+  {
+    id: 5,
+    name: "Athulya Jinu",
+    role: "UI/UX developer",
+    image: member5
+  },
+  {
+    id: 6,
+    name: "Cinda Sibichan",
+    role: "Python Developer",
+    image: member6
+  }
 ];
 
 const imageSettings = [
@@ -115,8 +137,6 @@ const TeamCircle: React.FC<TeamCircleProps> = ({ setActiveMember }) => {
       }}
     >
 
-     
-
       <motion.svg
         viewBox="0 0 750 750"
         className="w-[750px] h-[750px]"
@@ -129,7 +149,7 @@ const TeamCircle: React.FC<TeamCircleProps> = ({ setActiveMember }) => {
       >
 
         <defs>
-          {members.map((_, i) => (
+          {teamMembers.map((_, i) => (
             <clipPath
               key={i}
               id={`clip-${i}`}
@@ -140,11 +160,11 @@ const TeamCircle: React.FC<TeamCircleProps> = ({ setActiveMember }) => {
           ))}
         </defs>
 
-        {members.map((member, index) => (
+        {teamMembers.map((member, index) => (
           <Segment
-            key={index}
-            member={member}
-            memberData={teamMembers[index]}
+            key={member.id}
+            member={member.image}
+            memberData={member}
             index={index}
             seg={segmentSettings[index]}
             img={imageSettings[index]}
