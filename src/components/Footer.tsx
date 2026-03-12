@@ -10,8 +10,8 @@ import Loop from "./scrolllogo/Loop";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="w-full bg-black text-white px-6 lg:px-20 pt-16 pb-6 relative overflow-hidden">
-      
+    <footer className="w-full bg-black text-white px-6 lg:px-20 pt- pb-6 relative overflow-hidden">
+      <hr className="border-gray-700 pb-6"/>
       {/* Top Section */}
       <div className="grid lg:grid-cols-3 gap-12">
 
