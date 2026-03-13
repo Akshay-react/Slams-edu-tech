@@ -1,13 +1,14 @@
 import GooeyNav from "./GooeyNav ";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
+import logo from "../assets/logo.png"
 const Navbar: React.FC = () => {
  const items = [
   { label: "Home", to: "/" },
   { label: "Services", to: "/service" },
   { label: "Works", to: "/works" },
-  { label: "Careers", href: "#careers" },
+  { label: "Careers", to: "/careers" },
   { label: "About Us", href: "#about" },
   { label: "Contact Us", href: "#contact" },
 ];
@@ -36,14 +37,14 @@ const Navbar: React.FC = () => {
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-[1440px] mx-auto px-6 lg:px-8 py-5 flex items-center justify-between">
+      <div className="w-full mx-auto px-6 lg:px-8 py-5 flex items-center justify-between">
 
         {/* Logo */}
         <div className="flex items-center gap-2">
           <img
-            src="/logo.svg"
+            src={logo}
             alt="Logo"
-            className="h-8 w-auto object-contain"
+            className="h-12 w-auto object-contain"
           />
         </div>
 

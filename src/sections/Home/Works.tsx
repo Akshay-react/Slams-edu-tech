@@ -8,7 +8,7 @@ import { projects } from "@/data/projects";
 import { Link } from "react-router-dom";
 const Works = () => {
   return (
-    <section id="works" className='bg-[#1F1F1F] px-10 pt-[112px]'>
+    <section id="works" className='bg-black px-10 pt-[112px]'>
 
  <p className="font-medium text-[24px] text-gray-400">/ Our Works</p>
       <div className="flex justify-between">

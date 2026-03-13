@@ -8,7 +8,7 @@ import coverimg6 from "../assets/works/works7.png"
 import coverimg7 from "../assets/works/works8.png"
 import coverimg8 from "../assets/works/works9.png"
 import coverimg9 from "../assets/works/works10.png"
-import coverimg10 from "../assets/learn-mate/learn1.png"
+// import coverimg10 from "../assets/learn-mate/learn1.png"
 
 
 

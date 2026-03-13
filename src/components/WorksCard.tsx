@@ -1,10 +1,16 @@
 import { useId } from "react";
 
+type WorksCardProps = {
+  image: string;
+  name: string;
+  stack: string;
+};
+
 export default function WorksCard({
   image,
   name,
   stack,
-}) {
+}:WorksCardProps) {
 
   const clipId = useId();
 
@@ -51,6 +57,7 @@ export default function WorksCard({
 
               {/* Image */}
               <img
+              alt="img"
                 src={image}
                 className="w-full h-full object-cover transition duration-700 group-hover:scale-110"
               />

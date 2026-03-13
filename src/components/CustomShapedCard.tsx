@@ -1,13 +1,19 @@
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
+type CustomShapeCardProps = {
+  image: string;
+  title: string;
+  text: string;
+  buttonLink?: string;
+};
+
 export default function CustomShapeCard({
   image,
   title,
   text,
   buttonLink = "#",
-  
-}) {
+}: CustomShapeCardProps) {
   return (
     <Link to={buttonLink} className="block w-full max-w-[390px]">
 
@@ -54,7 +60,7 @@ export default function CustomShapeCard({
 
             {/* Button */}
             <a href={buttonLink}>
-              <button className="absolute bottom-5 right-5 rounded-full text-blue-600 bg-white px-4 py-4 group-hover:bg-blue-300 group-hover:text-white transition">
+              <button className="absolute bottom-5 right-5 rounded-full text-blue-600 bg-white px-4 py-4 group-hover:bg-blue-300 group-hover:text-white transition" title="button">
                  <ArrowUpRight size={24}     className="transition-transform duration-500 group-hover:rotate-45"
 />
               </button>
