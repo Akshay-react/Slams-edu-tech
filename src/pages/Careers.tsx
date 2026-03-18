@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ScrollToTop from "@/components/ScrollToTop";
 import OpeningPositions from "../components/OpeningPositions";
 import Internships from "../components/Internships";
@@ -7,6 +7,12 @@ export default function Careers() {
   const [activeTab, setActiveTab] = useState<"openings" | "internships">(
     "openings"
   );
+
+  useEffect(() => {
+    if (window.location.hash === "#internships") {
+      setActiveTab("internships");
+    }
+  }, []);
 
   return (
     <div className="bg-black text-white flex justify-center">
@@ -34,9 +40,6 @@ export default function Careers() {
             Internships
           </button>
         </div>
-
-        {/* Heading */}
-       
 
         {/* Dynamic Component */}
         {activeTab === "openings" && <OpeningPositions />}

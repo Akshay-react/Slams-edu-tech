@@ -1,9 +1,13 @@
 import { useState, useEffect } from "react";
 import AboutCard from "../../components/AboutCard"
-import Section3D from "../../components/Section3D"
+// import Section3D from "../../components/Section3D"
 import { Gem, Users, CircleCheck, Lightbulb } from "lucide-react"
 import ab1 from "../../assets/about/about1.png"
 import ab2 from "../../assets/about/about2.jpg"
+
+import { lazy, Suspense } from "react";
+
+const Section3D = lazy(() => import("../../components/Section3D"));
 
 // import GlobeWithMouseAndScroll from "../../components/ButterflyScroll"
 const About = () => {
@@ -21,11 +25,11 @@ const About = () => {
 
   return (
     <section id="about" className="relative px-6 pt-[32px] pb-10 min-h-[500px]">
-     {isLargeScreen && (
-        <div>
-          <Section3D />
-        </div>
-      )}
+    {isLargeScreen && (
+  <Suspense fallback={<div className="text-white">Loading 3D...</div>}>
+    <Section3D />
+  </Suspense>
+)}
 {/* <GlobeWithMouseAndScroll /> */}
 
 
@@ -39,14 +43,14 @@ const About = () => {
           </p>
 
           <div className="flex flex-col justify-between">
-            <p className="pt-4 font-medium text-5xl leading-tight">
+            <p className="pt-4 font-medium text-3xl md:text-5xl leading-tight">
               Your Partner in <br />
               <span className="text-blue-400">
                 Digital Transformation
               </span>
             </p>
 
-            <p className="pt-4 text-[#ADADAD] text-[20px] font-outfit max-w-[800px]">
+            <p className="pt-4 text-[#ADADAD] text-[16px] md:text-[20px] font-outfit max-w-[800px]">
               SLAMS EDUTECH is an IT and EdTech company providing innovative digital solutions in software development, UI/UX design, digital marketing, and web and mobile apps, along with AI & ML, cybersecurity, and IT training. Our mission is to bridge education and industry through practical, skill-based learning and value-driven technology services that help individuals and businesses grow in a digital world.
             </p>
           </div>
@@ -117,6 +121,7 @@ Z
 
 {/* Image */}
 <img
+alt="img"
 src={ab2}
 className="absolute inset-0 w-full h-full object-cover"
 style={{ clipPath: "url(#missionClipLarge)" }}
@@ -210,6 +215,7 @@ strokeWidth="1"
 
     {/* Image */}
     <img
+    alt="img"
       src={ab1}
       className="absolute inset-0 w-full h-full object-cover"
       style={{ clipPath: "url(#missionClipMirrorUpsideLarge)" }}
@@ -222,8 +228,7 @@ strokeWidth="1"
     ></div>
 
     {/* TEXT */}
-    <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8 xl:p-10 text-white">
-      <div className="max-w-[90%] md:max-w-[500px] pb-[116px]">
+<div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8 xl:p-10 text-white pt-12 md:pt-0">      <div className="max-w-[90%] md:max-w-[500px] pb-[116px] ">
 
         <h2 className="text-2xl md:text-3xl xl:text-4xl font-bold">
           Our Vision

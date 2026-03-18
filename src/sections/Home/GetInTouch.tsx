@@ -80,7 +80,8 @@ const ContactSection: React.FC = () => {
 
             <button
               type="submit"
-              className="w-full bg-gray-300 text-black font-medium py-4 rounded-lg hover:bg-gray-200 transition"
+              className="w-full bg-gray-300 text-black font-medium py-4 rounded-lg transition-all duration-300 
+  hover:-translate-y-1 hover:bg-gray-200"
             >
               Submit
             </button>

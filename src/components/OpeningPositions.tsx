@@ -1,15 +1,8 @@
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import career from "../assets/career.jpg";
+import { openings } from "@/data/openings";
 
-const openings = [
-  { id: "flutter", title: "Flutter Developer", type: "Full-Time . Remote" },
-  { id: "python", title: "Junior Python Developer", type: "Full-Time . Remote" },
-  { id: "tester", title: "Software Tester", type: "Full-Time . Remote" },
-  { id: "uiux", title: "UI/UX Designer", type: "Full-Time . Remote" },
-  { id: "react", title: "React Developer", type: "Full-Time . Remote" },
-  { id: "mern", title: "MERN Stack Developer", type: "Full-Time . Remote" },
-];
 
 export default function OpeningPositions() {
   return (
@@ -37,8 +30,7 @@ export default function OpeningPositions() {
 
         {/* Jobs */}
         {openings.map((job) => (
-          <Link key={job.id} to={`/careers/job/${job.id}`}>
-            <div className="relative group">
+<Link key={job.id} to={`/careers/${job.id}`}>            <div className="relative group">
               <div className="flex items-center justify-between pb-12 pt-12">
                 <div>
                   <h3 className="text-[30px] font-medium group-hover:text-blue-300">{job.title}</h3>
@@ -67,7 +59,8 @@ export default function OpeningPositions() {
           </h3>
 
           <Link to="/#contact">
-            <button className="bg-white text-black text-sm px-5 py-2 rounded">
+            <button className="bg-white text-black text-sm px-5 py-2 rounded transition-all duration-300 
+  hover:-translate-y-1 hover:bg-gray-200">
               Contact us
             </button>
           </Link>

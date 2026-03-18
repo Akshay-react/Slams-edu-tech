@@ -1,7 +1,12 @@
-import CustomShapeCard from "@/components/CustomShapedCard"
+// import CustomShapeCard from "@/components/CustomShapedCard"
 import { Link } from "react-router-dom"
 import { services } from "@/data/service"
 import ScrollToTop from "@/components/ScrollToTop"
+
+import { lazy, Suspense } from "react";
+import Loader from "@/components/Loader";
+
+const CustomShapeCard = lazy(() => import('../components/CustomShapedCard'));
 const Service = () => {
   return (
  <section className="px-10 font-outfit pb-16 pt-20">
@@ -22,6 +27,8 @@ const Service = () => {
     {/* cards */}
 
       <div className="flex justify-between gap-6 items-end pt-10 grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] lg:grid-cols-4">
+          <Suspense fallback={<div className="text-white"><Loader/></div>}>
+
       {services.map((service) => (
         <Link key={service.id} to={`/service/${service.id}`}>
           <CustomShapeCard
@@ -32,6 +39,7 @@ const Service = () => {
           />
         </Link>
       ))}
+      </Suspense>
     </div>
 
   </section>   )

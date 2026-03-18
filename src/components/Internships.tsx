@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import InternshipCard from "./InternshipCard";
 import { internship } from "@/data/internship";
 

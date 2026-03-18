@@ -145,7 +145,7 @@ sub:[
  {
     id: "slams-hunt",
     title: "Slams hunt",
-    subtitle: "Website",
+    subtitle: "Mobile app",
     coverImage:coverimg2,
 
 
@@ -256,7 +256,7 @@ sub:[
  {
     id: "Ziya-Global-Ventures",
     title: "Ziya Global Ventures",
-    subtitle: "Website",
+    subtitle: "Mobile app",
     coverImage:coverimg4,
 
 
@@ -311,7 +311,7 @@ sub:[
  {
     id: "Slams-Ride",
     title: "Slams Ride",
-    subtitle: "App",
+    subtitle: "Mobile app",
     coverImage:coverimg5,
 
 
@@ -365,7 +365,7 @@ sub:[
  {
     id: "learn-mate",
     title: "Ziya Learn mate",
-    subtitle: "App",
+    subtitle: "Mobile app",
     coverImage:coverimg6,
 
 
