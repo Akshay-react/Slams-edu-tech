@@ -1,11 +1,8 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { HashLink } from "react-router-hash-link";
-
 interface GooeyNavItem {
   label: string;
-  to?: string;      // ✅ added
-  href?: string;    // ✅ added
+  href: string;
 }
 
 export interface GooeyNavProps {
@@ -151,8 +148,8 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
 
   return (
     <>
-    
- <style>
+      {/* This effect is quite difficult to recreate faithfully using Tailwind, so a style tag is a necessary workaround */}
+      <style>
         {`
          :root {
   --color-1: #ffffff;
@@ -294,38 +291,45 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
       </style>
       <div className="relative" ref={containerRef}>
         <nav className="flex relative" style={{ transform: 'translate3d(0,0,0.01px)' }}>
-          <ul ref={navRef} className="flex gap-8 list-none p-0 px-4 m-0 relative z-[3]">
-            
-            {items.map((item, index) => (
-              <li key={index} className={`rounded-full relative cursor-pointer ${activeIndex === index ? "active" : ""}`}>
+          <ul
+            ref={navRef}
+            className="flex gap-8 list-none p-0 px-4 m-0 relative z-[3]"
+            style={{
                 
-                {item.href ? (
-                  <HashLink
-                    smooth
-                    to={`/${item.href}`}
-                    onClick={(e) => handleClick(e, index)}
-                    onKeyDown={(e) => handleKeyDown(e, index)}
-                    className="outline-none py-[0.6em] px-[1em] inline-block"
-                  >
-                    {item.label}
-                  </HashLink>
-                ) : (
-                  <Link
-                    to={item.to!}
-                    onClick={(e) => handleClick(e, index)}
-                    onKeyDown={(e) => handleKeyDown(e, index)}
-                    className="outline-none py-[0.6em] px-[1em] inline-block"
-                  >
-                    {item.label}
-                  </Link>
-                )}
-
-              </li>
-            ))}
-
+              color: 'white',
+              textShadow: '0 1px 1px hsl(205deg 30% 10% / 0.2)'
+            }}
+          >
+          {items.map((item, index) => (
+  <li
+    key={index}
+    className={`rounded-full relative cursor-pointer transition-[background-color_color_box-shadow] duration-300 ease shadow-[0_0_0.5px_1.5px_transparent] text-white ${
+      activeIndex === index ? "active" : ""
+    }`}
+  >
+    {item.to ? (
+      <Link
+        to={item.to}
+        onClick={(e) => handleClick(e, index)}
+        onKeyDown={(e) => handleKeyDown(e, index)}
+        className="outline-none py-[0.6em] px-[1em] inline-block"
+      >
+        {item.label}
+      </Link>
+    ) : (
+      <a
+        href={item.href}
+        onClick={(e) => handleClick(e, index)}
+        onKeyDown={(e) => handleKeyDown(e, index)}
+        className="outline-none py-[0.6em] px-[1em] inline-block"
+      >
+        {item.label}
+      </a>
+    )}
+  </li>
+))}
           </ul>
         </nav>
-
         <span className="effect filter" ref={filterRef} />
         <span className="effect text" ref={textRef} />
       </div>

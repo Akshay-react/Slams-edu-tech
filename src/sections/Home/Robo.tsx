@@ -62,11 +62,12 @@ const Robo = () => {
     gradientColors={['#3e3f41', '#74C3F1']}
     angle={0}
     noise={0.3}
-    blindCount={42}
+    blindCount={72}
     blindMinWidth={20}
     spotlightRadius={0.5}
-    spotlightSoftness={1}
-    spotlightOpacity={1}
+    //changed 1 to 0.5
+    spotlightSoftness={0.5}
+    spotlightOpacity={0.6}
     mouseDampening={0.15}
     distortAmount={0}
     shineDirection="left"

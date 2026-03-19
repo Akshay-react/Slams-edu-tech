@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/logo.png";
+import { HashLink } from "react-router-hash-link";
 
 const Navbar: React.FC = () => {
   const items = [
@@ -10,15 +11,14 @@ const Navbar: React.FC = () => {
     { label: "Services", to: "/service" },
     { label: "Works", to: "/works" },
     { label: "Careers", to: "/careers" },
-    { label: "About Us", href: "#about" },
-    { label: "Contact Us", href: "#contact" },
+    { label: "About Us", href: "#about" }, // ✅ only this uses HashLink
+    { label: "Blog", to: "/blog" }, // ❌ no hash here now
   ];
 
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
 
-  // Scroll effect for navbar background
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 120);
@@ -39,10 +39,10 @@ const Navbar: React.FC = () => {
           <img src={logo} alt="Logo" className="h-12 w-auto object-contain" />
         </div>
 
-        {/* Desktop Gooey Navigation */}
+        {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center">
           <GooeyNav
-            key={location.pathname} // forces remount on route change
+            key={location.pathname}
             items={items}
             particleCount={5}
             particleDistances={[90, 10]}
@@ -58,9 +58,11 @@ const Navbar: React.FC = () => {
 
         {/* Desktop CTA */}
         <div className="hidden lg:flex">
-          <button className="px-6 py-2.5 rounded-full border border-white text-white text-[15px] font-medium hover:bg-white hover:text-black transition-all">
-            Get a Quote
-          </button>
+          <HashLink smooth to="/#contact">
+            <button className="px-6 py-2.5 rounded-full border border-white text-white text-[15px] font-medium hover:bg-white hover:text-black transition-all">
+              Get a Quote
+            </button>
+          </HashLink>
         </div>
 
         {/* Mobile Menu Button */}
@@ -78,20 +80,36 @@ const Navbar: React.FC = () => {
           menuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        {/* Back Button */}
+        {/* Close Button */}
         <div className="flex items-center px-4 py-4 border-b border-white/10">
           <button
             onClick={() => setMenuOpen(false)}
-            className="text-white border rounded-[50px] gap-3 p-2 text-sm hover:text-gray-300 transition"
+            className="text-white border rounded-full p-2 hover:text-gray-300 transition"
           >
-            Back
+            <X />
           </button>
         </div>
 
-        {/* Mobile Menu Items */}
+        {/* Mobile Items */}
         <div className="flex flex-col items-center justify-center h-[calc(100%-60px)] gap-8 text-white text-xl font-medium">
-          {items.map((item, index) =>
-            item.to ? (
+          {items.map((item, index) => {
+            // ✅ ONLY About Us → HashLink
+            if (item.label === "About Us") {
+              return (
+                <HashLink
+                  key={index}
+                  smooth
+                  to={`/${item.href}`} // goes to homepage + #about
+                  onClick={() => setMenuOpen(false)}
+                  className="hover:text-gray-300 transition"
+                >
+                  {item.label}
+                </HashLink>
+              );
+            }
+
+            // ✅ All others → normal Link
+            return (
               <Link
                 key={index}
                 to={item.to}
@@ -100,21 +118,19 @@ const Navbar: React.FC = () => {
               >
                 {item.label}
               </Link>
-            ) : (
-              <a
-                key={index}
-                href={item.href}
-                onClick={() => setMenuOpen(false)}
-                className="hover:text-gray-300 transition"
-              >
-                {item.label}
-              </a>
-            )
-          )}
+            );
+          })}
 
-          <button className="mt-6 px-8 py-3 rounded-full border border-white hover:bg-white hover:text-black transition">
-            Get a Quote
-          </button>
+          {/* Mobile CTA */}
+          <HashLink
+            smooth
+            to="/#contact"
+            onClick={() => setMenuOpen(false)}
+          >
+            <button className="mt-6 px-8 py-3 rounded-full border border-white hover:bg-white hover:text-black transition">
+              Get a Quote
+            </button>
+          </HashLink>
         </div>
       </div>
     </header>

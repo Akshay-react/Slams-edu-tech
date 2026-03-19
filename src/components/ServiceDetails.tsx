@@ -1,8 +1,13 @@
 import { useParams } from "react-router-dom";
 import { services } from "../data/service";
+import { HashLink } from "react-router-hash-link";
+
 
 const ServiceDetails = () => {
   const { id } = useParams();
+
+
+
 
   const service = services.find((item) => item.id === id);
 
@@ -11,17 +16,17 @@ const ServiceDetails = () => {
   }
 
   return (
-    <div className="bg-black text-white">
+    <div className="w-full px-12 bg-black text-white">
 
       {/* HERO SECTION */}
-      <section className="max-w-7xl mx-auto px-6 py-20 flex flex-col lg:flex-row items-center gap-10">
+      <section className=" mx-auto  py-20 flex flex-col lg:flex-row items-center gap-10">
 
         <div className="flex-1">
-          <h1 className="text-4xl font-semibold mb-4">
-            {service.title} <span className="text-blue-400">Solutions</span> for Your Business
-          </h1>
+          <p className="text-[48px] font-medium mb-4">
+            {service.title} <br /> <span className="text-blue-400">Solutions</span> for Your <br /> Business
+          </p>
 
-          <p className="text-gray-400 mb-6">
+          <p className=" text-[20px] max-w-[650px] mb-6">
             {service.text}
           </p>
 
@@ -34,112 +39,133 @@ const ServiceDetails = () => {
           <img
             src={service.image}
             alt={service.title}
-            className="rounded-xl"
+            className="rounded-xl max-w-[700px] max-h-[550px]"
           />
         </div>
 
       </section>
 
       {/* ABOUT */}
-      <section className="max-w-6xl mx-auto px-6 py-16">
-        <h2 className="text-2xl font-semibold mb-4">About The Service</h2>
-        <p className="text-gray-400">
-          Our {service.title} services combine cutting-edge technology with creative design
-          to deliver exceptional digital experiences.
+      <section className=" mx-auto py-16">
+        <p className="text-[40px] font-medium mb-4">About The Service</p>
+        <p className="text-[20px]">
+           {service.about} 
         </p>
       </section>
 
       {/* WHAT WE OFFER */}
-      <section className="max-w-7xl mx-auto px-6 py-16">
+      <section className=" mx-auto  py-16">
 
-        <h2 className="text-2xl font-semibold mb-10">
-          What We Offer
+      <h2 className="text-2xl font-semibold mb-10">
+  What We Offer
+</h2>
+
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+  {service.offers?.map((item, index) => {
+  const Icon = item.icon;
+
+  return (
+    <div key={index} className="border border-gray-700 p-8 rounded-xl h-[240px]">
+      <Icon className="mb-4 text-blue-400" />
+      <p className="mb-2 font-medium text-[24px] leading-[32px]">{item.title}</p>
+      <p className="text-gray-400 text-[20px]">{item.desc}</p>
+    </div>
+  );
+})}
+</div>
+      </section>
+
+
+
+       <section className="bg-black text-white py-20 ">
+      <div className=" mx-auto">
+        
+        {/* Title */}
+        <h2 className="text-3xl font-semibold mb-12">
+          Technologies we use
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Timeline */}
+        <div className="relative">
 
-          <div className="border border-gray-700 p-6 rounded-xl">
-            <h3 className="mb-2">Static Websites</h3>
-            <p className="text-gray-400 text-sm">
-              Fast, SEO-optimized static sites.
-            </p>
-          </div>
+          {/* Horizontal dotted line */}
+          <div className="absolute top-2 left-0 w-full border-t border-dotted border-gray-500"></div>
 
-          <div className="border border-gray-700 p-6 rounded-xl">
-            <h3 className="mb-2">Dynamic Websites</h3>
-            <p className="text-gray-400 text-sm">
-              Interactive web apps with real-time features.
-            </p>
-          </div>
+          {/* Items */}
+          <div className="flex justify-between items-start relative">
+            {service.technologies.map((tech, index) => (
+              <div key={index} className="flex flex-col items-center w-full">
 
-          <div className="border border-gray-700 p-6 rounded-xl">
-            <h3 className="mb-2">E-commerce</h3>
-            <p className="text-gray-400 text-sm">
-              Online stores with payment integration.
-            </p>
-          </div>
+                {/* Vertical line */}
+                <div className="w-px h-20 bg-gray-500 mt-2"></div>
+                {/* Dot */}
+                <div className="w-2 h-2 bg-white rounded-full z-10 "></div>
 
-          <div className="border border-gray-700 p-6 rounded-xl">
-            <h3 className="mb-2">Custom Web Apps</h3>
-            <p className="text-gray-400 text-sm">
-              Tailored solutions for businesses.
-            </p>
+
+                {/* Text */}
+                <p className="mt-2 text-gray-300 text-[24px] font-medium">{tech}</p>
+
+              </div>
+            ))}
           </div>
 
         </div>
 
-      </section>
+      </div>
+    </section>
+
+
 
       {/* PROCESS */}
-      <section className="max-w-6xl mx-auto px-6 py-20">
+       <section className="bg-[#0d0d0d] text-white py-24 px-16">
+      <div className=" mx-auto">
+        
+        {/* Title */}
+        <p className="text-[40px] font-medium mb-10">Our Process</p>
 
-        <h2 className="text-2xl font-semibold mb-10">Our Process</h2>
+        {/* Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-y-24">
+          {service.steps.map((step, index) => {
+            let alignClass = "";
+            if (step.position === "left") alignClass = "justify-self-start";
+            if (step.position === "center") alignClass = "justify-self-center";
+            if (step.position === "right") alignClass = "justify-self-end";
 
-        <div className="grid md:grid-cols-3 gap-10">
+            return (
+              <div
+                key={index}
+                className={`relative w-[260px] ${alignClass}`}
+              >
+                {/* L shape border */}
+                <div className="absolute top-0 left-0 w-full h-full border-r border-t border-gray-700"></div>
 
-          <div>
-            <h3 className="text-xl mb-2">01 Planning</h3>
-            <p className="text-gray-400 text-sm">
-              Understanding project requirements and defining scope.
-            </p>
-          </div>
+                {/* Content */}
+                <div className="pl-6 pt-6">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="text-[40px] text-gray-400 font-semibold">
+                      {step.number}
+                    </span>
+                    <h3 className="text-xl font-medium">
+                      {step.title}
+                    </h3>
+                  </div>
 
-          <div>
-            <h3 className="text-xl mb-2">02 Design</h3>
-            <p className="text-gray-400 text-sm">
-              Creating wireframes and UI designs.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="text-xl mb-2">03 Development</h3>
-            <p className="text-gray-400 text-sm">
-              Building scalable and robust solutions.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="text-xl mb-2">04 Testing</h3>
-            <p className="text-gray-400 text-sm">
-              Testing, debugging and improvements.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="text-xl mb-2">05 Launch</h3>
-            <p className="text-gray-400 text-sm">
-              Deployment, optimization and support.
-            </p>
-          </div>
-
+                  <p className="text-gray-400 text-sm leading-relaxed max-w-[180px]">
+                    {step.text}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
         </div>
 
-      </section>
+      </div>
+    </section>
 
       {/* CTA */}
-      <section className="max-w-4xl mx-auto px-6 pb-20">
+      <section className=" mx-auto  py-12 flex  justify-center">
 
-        <div className="bg-blue-900 rounded-2xl text-center py-12 px-6">
+        <div className="bg-blue-900 rounded-2xl w-[900px]  text-center py-12 px-6">
 
           <h2 className="text-2xl font-semibold mb-4">
             Ready to Start Your Project?
@@ -148,10 +174,14 @@ const ServiceDetails = () => {
           <p className="text-gray-300 mb-6">
             Let’s discuss how we can help bring your vision to life
           </p>
-
+             <HashLink
+            smooth
+            to="/#contact"
+            >    
           <button className="bg-white text-black px-6 py-3 rounded-full">
             Get a Quote
           </button>
+          </HashLink>
 
         </div>
 

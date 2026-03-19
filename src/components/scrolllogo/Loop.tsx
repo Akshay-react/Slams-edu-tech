@@ -1,6 +1,8 @@
 import LogoLoop from './LogoScroll';
 import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss } from 'react-icons/si';
-
+import img1 from "../../assets/member1.png"
+import img2 from "../../assets/member2.png"
+import img3 from "../../assets/member3.png"
 const techLogos = [
   { node: <SiReact />, title: "React", href: "https://react.dev" },
   { node: <SiNextdotjs />, title: "Next.js", href: "https://nextjs.org" },
@@ -10,9 +12,9 @@ const techLogos = [
 
 // Alternative with image sources
 const imageLogos = [
-  { src: "/logos/company1.png", alt: "Company 1", href: "https://company1.com" },
-  { src: "/logos/company2.png", alt: "Company 2", href: "https://company2.com" },
-  { src: "/logos/company3.png", alt: "Company 3", href: "https://company3.com" },
+  { src: img1, alt: "Company 1", href: "https://company1.com" },
+  { src: img2, alt: "Company 2", href: "https://company2.com" },
+  { src: img3, alt: "Company 3", href: "https://company3.com" },
 ];
 
 function Loop() {
