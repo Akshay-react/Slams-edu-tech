@@ -9,7 +9,6 @@ import { lazy, Suspense } from "react";
 
 const Section3D = lazy(() => import("../../components/Section3D"));
 
-// import GlobeWithMouseAndScroll from "../../components/ButterflyScroll"
 const About = () => {
    const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 1280);
 

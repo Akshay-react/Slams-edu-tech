@@ -77,11 +77,8 @@
 
 
 
-import img1 from "../../assets/robo.jpg";
-import CustomShapeCard from "../../components/CustomShapedCard";
-import img2 from "../../assets/service2.jpg";
-import img3 from "../../assets/service3.jpg";
-import img4 from "../../assets/service4.jpg";
+import { services } from "@/data/service";
+import CustomShapeCard from "@/components/CustomShapedCard";
 import StarBorder from "../../components/StarBorder";
 import { Link } from "react-router-dom";
 
@@ -123,35 +120,18 @@ const Service = () => {
       </p>
 
       {/* cards */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 pt-10">
-        <CustomShapeCard
-          image={img3}
-          title="Web Development"
-          text="Static & dynamic websites, e-commerce solutions, and custom web applications built with modern technologies"
-          buttonLink="/project/slams"
-        />
-
-        <CustomShapeCard
-          image={img1}
-          title="AI & Machine Learning"
-          text="Intelligent solutions powered by machine learning, data analytics, and predictive modeling."
-          buttonLink="/project/slams"
-        />
-
-        <CustomShapeCard
-          image={img2}
-          title="App Development"
-          text="Cross-platform mobile apps for Android & iOS using Flutter and React Native with seamless UX."
-          buttonLink="/project/slams"
-        />
-
-        <CustomShapeCard
-          image={img4}
-          title="Cyber Security"
-          text="Protect your digital assets with vulnerability assessments, penetration testing, and security audits."
-          buttonLink="/project/slams"
-        />
-      </div>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 pt-10">
+             {services.slice(0, 4).map((service) => (
+                <Link key={service.id} to={`/service/${service.id}`}>
+                         <CustomShapeCard
+                           image={service.image}
+                           title={service.title}
+                           text={service.text}
+                           buttonLink={`/service/${service.id}`}
+                         />
+                       </Link>
+             ))}
+           </div>
 
       {/* Mobile View More Button */}
       <div className="mt-10 md:hidden w-full">

@@ -7,6 +7,7 @@ import { useState } from "react";
 import { Briefcase, MapPin, Clock,CircleChevronLeft} from "lucide-react";
 import { toast } from "sonner";
 
+
 export default function JobDetails() {
   const { id } = useParams();
 

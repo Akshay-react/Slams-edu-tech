@@ -6,6 +6,8 @@ import {
 } from "react-icons/fa";
 import { FiMapPin, FiPhone, FiMail } from "react-icons/fi";
 import Loop from "./scrolllogo/Loop";
+import logo from "../assets/logo.png";
+
 
 const Footer: React.FC = () => {
   return (
@@ -16,13 +18,17 @@ const Footer: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12">
 
         {/* Left */}
-        <div>
+        <div >
+                           <img src={logo} alt="Logo" className="h-24 w-auto object-contain" />
+
           <h2 className="text-xl sm:text-2xl font-semibold leading-snug text-center md:text-left">
-            Begin Your Dream Project <br /> with Us Today
+            Empowering future tech leaders through industry-ready training and comprehensive IT solutions. Start your journey today.
           </h2>
 
           <div className="flex gap-4 mt-6 justify-center md:justify-start flex-wrap">
-            <a href="#">
+            <a
+                        title="btn"
+               href="#">
               <FaInstagram
                 size={22}
                 className="text-white hover:bg-gradient-to-r hover:from-pink-500 hover:to-purple-500 rounded-md w-8 h-8 p-1 flex items-center justify-center transition-colors duration-300"
@@ -30,13 +36,16 @@ const Footer: React.FC = () => {
             </a>
 
             <a
+                        title="btn"
+
               href="#"
               className="hover:bg-blue-400 rounded-md w-8 h-8 flex items-center justify-center transition-colors duration-300"
             >
               <FaFacebookF size={18} />
             </a>
 
-            <a
+            <a 
+            title="btn"
               href="#"
               className="hover:bg-blue-600 rounded-md w-8 h-8 flex items-center justify-center transition-colors duration-300"
             >
@@ -46,7 +55,7 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Company */}
-        <div className="grid grid-cols-2 gap-8 sm:gap-10 text-center md:text-left">
+        <div className="grid grid-cols-2 gap-8 sm:gap-10 text-center md:text-left pt-10">
           <div>
             <h3 className="text-lg font-medium mb-4">Company</h3>
             <ul className="space-y-3 text-gray-400 text-sm sm:text-base">
@@ -66,7 +75,7 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Contact */}
-        <div className="text-center md:text-left">
+        <div className="text-center md:text-left pt-10">
           <h3 className="text-lg font-medium mb-4">Contact Us</h3>
 
           <div className="space-y-4 text-gray-400 text-sm sm:text-base">

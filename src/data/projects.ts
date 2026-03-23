@@ -532,7 +532,7 @@ sub:[
 
 
  description:
-"This app connects local businesses with real users to boost visibility and brand awareness in target areas. Businesses create promotional campaigns and assign simple engagement tasks such as store visits, content sharing, reviews, or offer promotion. Users complete tasks through the mobile app and earn rewards for verified actions. The system provides transparent tracking, secure submissions, and performance based payouts. Companies gain authentic local exposure, wider reach, and stronger community trust, while users enjoy flexible earning opportunities and help nearby brands grow through genuine participation. Results are measurable and campaigns remain easy to manage daily.",
+"This app connects local businesses with real users to boost[] visibility and brand awareness in target areas. Businesses create promotional campaigns and assign simple engagement tasks such as store visits, content sharing, reviews, or offer promotion. Users complete tasks through the mobile app and earn rewards for verified actions. The system provides transparent tracking, secure submissions, and performance based payouts. Companies gain authentic local exposure, wider reach, and stronger community trust, while users enjoy flexible earning opportunities and help nearby brands grow through genuine participation. Results are measurable and campaigns remain easy to manage daily.",
 head:"How We Built a Smarter Local Promotion Platform",
 
 head2:[

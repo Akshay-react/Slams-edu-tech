@@ -1,5 +1,4 @@
 // import CustomShapeCard from "@/components/CustomShapedCard"
-import { Link } from "react-router-dom"
 import { services } from "@/data/service"
 import ScrollToTop from "@/components/ScrollToTop"
 
@@ -30,14 +29,14 @@ const Service = () => {
           <Suspense fallback={<div className="text-white"><Loader/></div>}>
 
       {services.map((service) => (
-        <Link key={service.id} to={`/service/${service.id}`}>
           <CustomShapeCard
+              key={service.id}
+
             image={service.image}
             title={service.title}
             text={service.text}
             buttonLink={`/service/${service.id}`}
           />
-        </Link>
       ))}
       </Suspense>
     </div>

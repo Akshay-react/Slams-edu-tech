@@ -31,7 +31,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     id: 3,
-    name: "Ashvin Kunniri",
+    name: "Ashvin Kunnirikkal",
     role: "AI/ML Engineer",
     image: member3
   },
@@ -162,10 +162,10 @@ const TeamCircle: React.FC<TeamCircleProps> = ({ setActiveMember }) => {
 
         {teamMembers.map((member, index) => (
           <Segment
-            key={member.id}
-            member={member.image}
-            memberData={member}
-            index={index}
+            key={member.id}   
+            member={member.image}   
+            memberData={member}   
+            index={index}   
             seg={segmentSettings[index]}
             img={imageSettings[index]}
             segmentPath={segmentPath}
