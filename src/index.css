@@ -66,5 +66,8 @@ html {
   fill:#c9c8c7;
 }
 
+.segment-shape {
+  transition: stroke 0.25s ease, stroke-width 0.25s ease, filter 0.35s ease;
+}
 
 

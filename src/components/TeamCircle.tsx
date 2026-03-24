@@ -1,13 +1,23 @@
-import { motion, useInView } from "framer-motion";
+import { useMotionValueEvent, useSpring, useTransform, MotionValue } from "framer-motion";
+import { useState } from "react";
+import Segment from "./Segment";
+
+/* IMAGE IMPORTS */
+
 import member1 from "../assets/member1.png";
 import member2 from "../assets/member2.png";
 import member3 from "../assets/member3.png";
 import member4 from "../assets/member4.png";
 import member5 from "../assets/member5.png";
-import member6 from "../assets/member6.png";
+import member6 from "../assets/Sreekutti.png";
+import member7 from "../assets/akshayui.png";
+import member8 from "../assets/HR.png";
+import member9 from "../assets/cinda.png";
+import member10 from "../assets/alfred.png";
+import member11 from "../assets/noufal.png";
+import member12 from "../assets/anoop.png";
 
-import Segment from "./Segment";
-import { useEffect, useRef, useState } from "react";
+/* TYPES */
 
 interface TeamMember {
   id: number;
@@ -16,53 +26,43 @@ interface TeamMember {
   image: string;
 }
 
-const teamMembers: TeamMember[] = [
-  {
-    id: 1,
-    name: "Anugrah Sivadasan",
-    role: "Frontend Developer",
-    image: member1
-  },
-  {
-    id: 2,
-    name: "Jesna",
-    role: "Finance Head",
-    image: member2
-  },
-  {
-    id: 3,
-    name: "Ashvin Kunniri",
-    role: "AI/ML Engineer",
-    image: member3
-  },
-  {
-    id: 4,
-    name: "Akshay",
-    role: "Frontend Developer",
-    image: member4
-  },
-  {
-    id: 5,
-    name: "Athulya Jinu",
-    role: "UI/UX developer",
-    image: member5
-  },
-  {
-    id: 6,
-    name: "Cinda Sibichan",
-    role: "Python Developer",
-    image: member6
-  }
+interface Props {
+  setActiveMember: (member: TeamMember | null) => void;
+  scrollYProgress: MotionValue<number>;
+}
+
+/* TEAM ARRAYS */
+
+const teamMembers1: TeamMember[] = [
+  { id: 1, name: "Akshay", role: "UI/UX Developer", image: member7 },
+  { id: 2, name: "Anugrah Sivadasan", role: "Frontend Developer", image: member1 },
+  { id: 3, name: "Ashvin Kunniri", role: "AI/ML Engineer", image: member9 },
+  { id: 4, name: "Akshay", role: "Frontend Developer", image: member10 },
+  { id: 5, name: "Athulya Jinu", role: "UI/UX developer", image: member6 },
+  { id: 6, name: "Fayas", role: "HR", image: member8 }
 ];
 
+const teamMembers2: TeamMember[] = [
+  { id: 7, name: "Anoop", role: "Frontend Developer", image: member12 },
+  { id: 8, name: "Developer 8", role: "QA Engineer", image: member2 },
+  { id: 9, name: "Developer 9", role: "DevOps Engineer", image: member3 },
+  { id: 10, name: "Developer 10", role: "Mobile Developer", image: member4 },
+  { id: 11, name: "Sana Salman", role: "UI/UX Developer", image: member5 },
+  { id: 12, name: "Cinda Sibichan", role: "Python developer", image: member11 }
+];
+
+/* IMAGE POSITION SETTINGS */
+
 const imageSettings = [
-  { rotate: -332, offsetX: 0, offsetY: 22, scale: 1.0 },
+  { rotate: 20, offsetX: 20, offsetY: 12, scale: 1.0 },
   { rotate: -25, offsetX: 10, offsetY: 55, scale: 1.0 },
   { rotate: -80, offsetX: 50, offsetY: -25, scale: 1.0 },
   { rotate: -150, offsetX: 30, offsetY: -10, scale: 1.0 },
   { rotate: 150, offsetX: 30, offsetY: -15, scale: 1.1 },
-  { rotate: 90, offsetX: -15, offsetY: -25, scale: 1.05 },
+  { rotate: 90, offsetX: -15, offsetY: -25, scale: 1.05 }
 ];
+
+/* SEGMENT SETTINGS */
 
 const baseAngle = -30;
 const step = 60;
@@ -74,7 +74,7 @@ const segmentSettings = [
   { angle: baseAngle + step * 2 + gapAdjust, radius: 180, offsetX: 30, offsetY: -123 },
   { angle: baseAngle + step * 3 + gapAdjust, radius: 180, offsetX: -32, offsetY: -93 },
   { angle: baseAngle + step * 4 + gapAdjust, radius: 180, offsetX: -32, offsetY: -30 },
-  { angle: baseAngle + step * 5 + gapAdjust, radius: 185, offsetX: 16, offsetY: 5 },
+  { angle: baseAngle + step * 5 + gapAdjust, radius: 185, offsetX: 16, offsetY: 5 }
 ];
 
 const segmentPath = `
@@ -96,90 +96,125 @@ C118.803 25.3897 120.563 19.1962 125.48 16.5178
 Z
 `;
 
-interface TeamCircleProps {
-  setActiveMember: (member: TeamMember | null) => void;
-}
+const TeamCircle = ({ setActiveMember, scrollYProgress }: Props) => {
 
-const TeamCircle: React.FC<TeamCircleProps> = ({ setActiveMember }) => {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [activeMembers, setActiveMembers] = useState(teamMembers1);
 
   const center = 350;
   const pivotCX = 105;
   const pivotCY = 155;
 
-  const containerRef = useRef(null);
+  /* SCROLL → SWEEP */
 
-  const isInView = useInView(containerRef, {
-    once: true,
-    amount: 0.4,
+  const sweepProgress = useTransform(scrollYProgress, [0.05, 0.65], [0, 360]);
+
+const sweep = useSpring(sweepProgress, {
+  stiffness: 90,
+  damping: 25,
+  mass: 0.4
+}); 
+
+  /* TEAM SWITCH */
+
+  useMotionValueEvent(scrollYProgress, "change", (v) => {
+    if (v < 0.65) {
+      setActiveMembers(teamMembers1);
+    } else {
+      setActiveMembers(teamMembers2);
+    }
   });
 
-  const [inertia, setInertia] = useState(false);
+const [sweepValue, setSweepValue] = useState(1)
 
-  useEffect(() => {
-    if (!isInView) return;
+useMotionValueEvent(sweep, "change", (v) => {
+  setSweepValue(Math.max(1, v))
+})
 
-    const timer = setTimeout(() => {
-      setInertia(true);
-    }, 1000);
+const radiusMask = 1200
+const centerX = 350
+const centerY = 350
 
-    return () => clearTimeout(timer);
-  }, [isInView]);
+
+let maskPath = ""
+
+if (sweepValue <= 0.1) {
+
+  maskPath = `
+    M ${centerX} ${centerY}
+    L ${centerX + 1} ${centerY}
+    Z
+  `
+
+} else if (sweepValue >= 360) {
+
+  maskPath = `
+    M -1000 -1000
+    H 2000
+    V 2000
+    H -1000
+    Z
+  `
+
+} else {
+
+const angle = (sweepValue - 180) * Math.PI / 180
+const x = centerX + radiusMask * Math.cos(angle)
+const y = centerY + radiusMask * Math.sin(angle)
+
+const largeArc = sweepValue >= 180 ? 1 : 0
+
+maskPath = `
+M ${centerX} ${centerY}
+L ${centerX + radiusMask} ${centerY}
+A ${radiusMask} ${radiusMask} 0 ${largeArc} 1 ${x} ${y}
+Z
+`
+}
 
   return (
-    <motion.div
-      ref={containerRef}
-      className="w-[750px] h-[750px] relative"
-      initial={{ opacity: 0, y: 80 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{
-        duration: 1.2,
-        ease: [0.22, 1, 0.36, 1],
-      }}
-    >
+    <section  className="relative">
 
-      <motion.svg
-        viewBox="0 0 750 750"
-        className="w-[750px] h-[750px]"
-        animate={inertia ? { rotate: [0, 4, 0] } : { rotate: 0 }}
-        transition={{
-          duration: 1,
-          ease: [0.33, 1, 0.68, 1],
-        }}
-        style={{ transformOrigin: "50% 50%" }}
-      >
+      <div className="sticky top-0 h-screen flex items-center justify-center">
 
-        <defs>
-          {teamMembers.map((_, i) => (
-            <clipPath
-              key={i}
-              id={`clip-${i}`}
-              clipPathUnits="userSpaceOnUse"
-            >
-              <path d={segmentPath} />
-            </clipPath>
-          ))}
-        </defs>
+        <div className="w-[750px] h-[750px] relative flex items-center justify-center">
 
-        {teamMembers.map((member, index) => (
-          <Segment
-            key={member.id}
-            member={member.image}
-            memberData={member}
-            index={index}
-            seg={segmentSettings[index]}
-            img={imageSettings[index]}
-            segmentPath={segmentPath}
-            center={center}
-            pivotCX={pivotCX}
-            pivotCY={pivotCY}
-            startAnimation={isInView}
-            onHoverMember={setActiveMember}
-          />
-        ))}
+          <svg viewBox="0 0 750 750" className="w-[750px] h-[750px]">
+ 
+<defs>
+  <clipPath id="radialReveal" clipPathUnits="userSpaceOnUse">
+    <path d={maskPath} />
+  </clipPath>
+</defs>
 
-      </motion.svg>
+            {activeMembers.map((member, index) => (
 
-    </motion.div>
+              <Segment
+                key={member.id}
+                member={member.image}
+                memberData={member}
+                index={index}
+                seg={segmentSettings[index]}
+                img={imageSettings[index]}
+                segmentPath={segmentPath}
+                center={center}
+                pivotCX={pivotCX}
+                pivotCY={pivotCY}
+                sweep={sweep}
+                onHoverMember={setActiveMember}
+                hoveredIndex={hoveredIndex}
+                setHoveredIndex={setHoveredIndex}
+              />
+
+            ))}
+
+          </svg>
+
+        </div>
+
+      </div>
+
+    </section>
   );
 };
 

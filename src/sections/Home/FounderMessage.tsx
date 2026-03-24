@@ -4,7 +4,7 @@ import ConnectorShape from "../../components/ConnectorShape";
 
 const FoundersMessage: React.FC = () => {
   return (
-    <section className="relative bg-black text-white py-14 sm:py-16 lg:py-20 px-4 sm:px-8 lg:px-20 overflow-hidden">
+    <section className="relative bg-black text-white py-14 sm:py-16 lg:py-20 px-4 sm:px-8 lg:px-20 mb-20 overflow-hidden">
 
       {/* SVG defs for image clip */}
       <svg width="0" height="0">

@@ -7,6 +7,7 @@ import FoundersMessage from '../sections/Home/FounderMessage';
 import Robo from '../sections/Home/Robo';
 import Build from '../sections/Home/Build';
 import ContactSection from '../sections/Home/GetInTouch';
+import WhyChooseSection from '@/sections/Home/WhyChooseUs';
 // import Deliver from '../sections/Home/Deliver';
 const Home = () => {
   return (
@@ -21,6 +22,7 @@ const Home = () => {
     <Team/>
     <Build />
     <Robo />
+    <WhyChooseSection/>
     <ContactSection />
    </div>
   )
