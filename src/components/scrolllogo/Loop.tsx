@@ -1,8 +1,6 @@
 import LogoLoop from './LogoScroll';
 import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss } from 'react-icons/si';
-// import img1 from "../../assets/member1.png"
-// import img2 from "../../assets/member2.png"
-// import img3 from "../../assets/member3.png"
+
 import { Link } from "react-router-dom";
 import img7 from "../../assets/works/works7.png"
 import img2 from "../../assets/works/works2.png"
@@ -10,6 +8,9 @@ import img3 from "../../assets/works/works3.png"
 import img4 from "../../assets/works/works4.png"
 import img5 from "../../assets/works/works5.png"
 import img6 from "../../assets/works/works6.png"
+import img8 from "../../assets/works/works8.png"
+import img9 from "../../assets/works/works9.png"
+import img10 from "../../assets/works/works10.png"
 
 // const techLogos = [
 //   { node: <SiReact />, title: "React", href: "https://react.dev" },
@@ -26,6 +27,9 @@ const imageLogos = [
   { id: "4", src: img4, alt: "Company 4", link: "/project/juggle-laundry" },
   { id: "5", src: img5, alt: "Company 5", link: "/project/Slams-Ride" },
   { id: "6", src: img6, alt: "Company 6", link: "/project/Ziya-Global-Ventures" },
+  { id: "8", src: img8, alt: "Company 8", link: "/project/pro-hire" },
+  { id: "9", src: img9, alt: "Company 9", link: "/project/Direct-share" },
+  { id: "10", src: img10, alt: "Company 10", link: "/project/Slams-grow" },
 ];
 
 function Loop() {

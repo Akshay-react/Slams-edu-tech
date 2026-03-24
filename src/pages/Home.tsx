@@ -9,6 +9,7 @@ const Team = lazy(() => import('../sections/Home/Team'));
 const FoundersMessage = lazy(() => import('../sections/Home/FounderMessage'));
 const Robo = lazy(() => import('../sections/Home/Robo'));
 const Build = lazy(() => import('../sections/Home/Build'));
+const Faq = lazy(() => import('../sections/Home/Faq'));
 const ContactSection = lazy(() => import('../sections/Home/GetInTouch'));
 const Home = () => {
   return (
@@ -44,6 +45,9 @@ const Home = () => {
 
       <Suspense fallback={<div className="p-10"><Loader/></div>}>
         <Robo />
+      </Suspense>
+      <Suspense fallback={<div className="p-10"><Loader/></div>}>
+        <Faq />
       </Suspense>
 
       <Suspense fallback={<div className="p-10"><Loader/></div>}>
