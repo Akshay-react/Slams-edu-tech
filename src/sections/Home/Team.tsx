@@ -43,7 +43,7 @@ const Team = () => {
 
   const { scrollYProgress } = useScroll({
   target: sectionRef,
-  offset: ["start start", "end end"]
+  offset: ["start start", "end start"]
 });
 
   return (
@@ -54,7 +54,7 @@ const Team = () => {
     <div className="max-w-7xl mx-auto flex items-center justify-evenly gap-20 w-full">
 
       {/* LEFT SIDE - Circle */}
-     <div className="flex items-center justify-center">
+     <div className="flex items-center justify-center z-10">
   <TeamCircle
     setActiveMember={setActiveMember} 
     scrollYProgress={scrollYProgress}

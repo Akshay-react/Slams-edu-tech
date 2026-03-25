@@ -107,48 +107,35 @@ const TeamCircle = ({ setActiveMember, scrollYProgress }: Props) => {
 
   /* SCROLL → SWEEP */
 
-// PHASE 1 → first reveal
-const sweepPhase1 = useTransform(scrollYProgress, [0.05, 0.5], [0, 360]);
-
-// PHASE 2 → second reveal
-const sweepPhase2 = useTransform(scrollYProgress, [0.5, 0.95], [0, 360]);
+const sweepProgress = useTransform(scrollYProgress, [0.1, 0.7], [0, 360]);
 
 
-const sweep1 = useSpring(sweepPhase1, {
-  stiffness: 90,
-  damping: 25,
-  mass: 0.4
-});
 
-const sweep2 = useSpring(sweepPhase2, {
-  stiffness: 90,
-  damping: 25,
-  mass: 0.4
+const sweep = useSpring(sweepProgress, {
+    stiffness: 100,
+    damping: 25
+  });
+
+  const [sweepValue, setSweepValue] = useState(0);
+
+ useMotionValueEvent(sweep, "change", (v) => {
+  const clamped = Math.max(0, Math.min(359.9, v));
+  setSweepValue(clamped);
 });
 
   /* TEAM SWITCH */
 
-  useMotionValueEvent(scrollYProgress, "change", (v) => {
-    if (v < 0.65) {
-      setActiveMembers(teamMembers1);
-    } else {
+    useMotionValueEvent(scrollYProgress, "change", (v) => {
+    if (v > 0.7) {
       setActiveMembers(teamMembers2);
+    } else {
+      setActiveMembers(teamMembers1);
     }
   });
 
-const [sweepValue, setSweepValue] = useState(1);
 
-useMotionValueEvent(scrollYProgress, "change", (v) => {
-  if (v < 0.5) {
-    // FIRST ANIMATION
-    setActiveMembers(teamMembers1);
-    setSweepValue(sweep1.get());
-  } else {
-    // SECOND ANIMATION
-    setActiveMembers(teamMembers2);
-    setSweepValue(sweep2.get());
-  }
-});
+
+
 
 const radiusMask = 1200
 const centerX = 350
@@ -157,7 +144,7 @@ const centerY = 350
 
 let maskPath = ""
 
-if (sweepValue <= 0.1) {
+if (sweepValue <= 5) {
 
   maskPath = `
     M ${centerX} ${centerY}
@@ -165,7 +152,7 @@ if (sweepValue <= 0.1) {
     Z
   `
 
-} else if (sweepValue >= 360) {
+} else if (sweepValue >= 359) {
 
   maskPath = `
     M -1000 -1000
@@ -177,7 +164,7 @@ if (sweepValue <= 0.1) {
 
 } else {
 
-const angle = (sweepValue - 180) * Math.PI / 180
+const angle = (sweepValue - 90) * Math.PI / 180
 const x = centerX + radiusMask * Math.cos(angle)
 const y = centerY + radiusMask * Math.sin(angle)
 
@@ -208,7 +195,7 @@ Z
 
             {activeMembers.map((member, index) => (
 
-              <Segment
+                <Segment
                 key={member.id}
                 member={member.image}
                 memberData={member}
