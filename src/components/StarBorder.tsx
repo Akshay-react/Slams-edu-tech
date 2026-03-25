@@ -1,4 +1,4 @@
-import React, { type ElementType, type ComponentPropsWithoutRef } from "react";
+import React, { type ElementType, type ComponentPropsWithoutRef, type CSSProperties } from "react";
 
 type StarBorderProps<T extends ElementType> = {
   as?: T;
@@ -10,7 +10,8 @@ type StarBorderProps<T extends ElementType> = {
   speed?: string;
   thickness?: number;
   children: React.ReactNode;
-} & Omit<ComponentPropsWithoutRef<T>, "as" | "children">;
+  style?: CSSProperties;
+} & Omit<ComponentPropsWithoutRef<T>, "as" | "children" | "style">;
 
 const StarBorder = <T extends ElementType = "button">({
   as,
@@ -22,20 +23,21 @@ const StarBorder = <T extends ElementType = "button">({
   speed = "3s",
   thickness = 2,
   children,
+  style,
   ...rest
 }: StarBorderProps<T>) => {
   const Component = as || "button";
 
   return (
     <Component
-      className={`relative inline-block w-[130px] overflow-hidden rounded-[50px] ${className}`}
+      className={`relative inline-flex items-center justify-center overflow-hidden rounded-[50px] ${className}`}
       style={{
         padding: 0,
-        ...(rest as any).style,
+        ...style,
       }}
       {...rest}
     >
-      {/* Smooth Rotating Glow Layer */}
+      {/* Rotating Glow */}
       <div
         className="absolute inset-0 z-0 rounded-[50px]"
         style={{
@@ -51,12 +53,12 @@ const StarBorder = <T extends ElementType = "button">({
         />
       </div>
 
-      {/* Button Content */}
+      {/* Content */}
       <div
-        className={`relative z-[1] bg-gradient-to-b ${c1} ${c2} ${c3} border border-gray-800 text-white text-center text-[16px] rounded-[20px]`}
+        className={`relative z-[1] w-full bg-gradient-to-b ${c1} ${c2} ${c3} border border-gray-800 text-white text-center text-[16px] rounded-[50px]`}
         style={{
           margin: thickness,
-          padding: "10px 6px",
+          padding: "12px 20px",
         }}
       >
         {children}

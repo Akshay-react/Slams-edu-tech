@@ -1,4 +1,3 @@
-import React from "react";
 import ceo from "../../assets/founder.jpg";
 import ConnectorShape from "../../components/ConnectorShape";
 

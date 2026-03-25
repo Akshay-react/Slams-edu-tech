@@ -54,11 +54,12 @@ const Team = () => {
     <div className="max-w-7xl mx-auto flex items-center justify-evenly gap-20 w-full">
 
       {/* LEFT SIDE - Circle */}
-      <section className="relative flex items-center justify-center">
-        <TeamCircle
-         setActiveMember={setActiveMember} 
-         scrollYProgress={scrollYProgress}/>
-      </section> 
+     <div className="flex items-center justify-center">
+  <TeamCircle
+    setActiveMember={setActiveMember} 
+    scrollYProgress={scrollYProgress}
+  />
+</div>
  
 
       {/* RIGHT SIDE - Content */}

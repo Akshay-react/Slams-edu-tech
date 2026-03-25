@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom"
 import { projects } from "../data/projects"
 import { useEffect,useState } from "react"
+import ScrollToTop from "./ScrollToTop"
 export default function ProjectDetail() {
 
   const { id } = useParams<{ id: string }>()
@@ -26,6 +27,7 @@ export default function ProjectDetail() {
 
   return (
     <section className="px-4 sm:px-6 md:px-8 py-16 md:py-20 max-w-full mx-auto">
+      <ScrollToTop/>
 
       {/* SVG clipPaths */}
       <svg width="0" height="0">

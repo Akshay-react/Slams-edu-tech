@@ -36,7 +36,7 @@ function Knot(): JSX.Element {
   return (
     <TorusKnot ref={ref} args={[0.4, 0.25, 200, 32]}>
       <meshStandardMaterial
-        color="#D9D9D9"
+        color="#d9d9d9"
         metalness={1}
         roughness={0.15}
         envMapIntensity={3}

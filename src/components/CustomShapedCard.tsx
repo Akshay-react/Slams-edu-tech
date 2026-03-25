@@ -1,13 +1,19 @@
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
+type CustomShapeCardProps = {
+  image: string;
+  title: string;
+  text: string;
+  buttonLink?: string;
+};
+
 export default function CustomShapeCard({
   image,
   title,
   text,
   buttonLink = "#",
-  
-}) {
+}: CustomShapeCardProps) {
   return (
     <Link to={buttonLink} className="block w-full max-w-[390px]">
 
@@ -42,7 +48,7 @@ export default function CustomShapeCard({
               alt={title}
               className="w-full h-full object-cover scale-125 -translate-y-12 transition duration-700 group-hover:scale-150 group-hover:-translate-y-20"
             />
-
+ 
             {/* Overlay */}
             <div className="absolute inset-0 bg-black/20"></div>
 
@@ -53,12 +59,15 @@ export default function CustomShapeCard({
             </div>
 
             {/* Button */}
-            <a href={buttonLink}>
-              <button className="absolute bottom-5 right-5 rounded-full text-blue-600 bg-white px-4 py-4 group-hover:bg-blue-300 group-hover:text-white transition">
-                 <ArrowUpRight size={24}     className="transition-transform duration-500 group-hover:rotate-45"
-/>
-              </button>
-            </a>
+          <button
+  className="absolute bottom-5 right-5 rounded-full text-blue-600 bg-white px-4 py-4 group-hover:bg-blue-300 group-hover:text-white transition"
+  aria-label="Open project"
+>
+  <ArrowUpRight
+    size={24}
+    className="transition-transform duration-500 group-hover:rotate-45"
+  />
+</button>
 
           </div>
         </foreignObject>

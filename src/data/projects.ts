@@ -8,7 +8,7 @@ import coverimg6 from "../assets/works/works7.png"
 import coverimg7 from "../assets/works/works8.png"
 import coverimg8 from "../assets/works/works9.png"
 import coverimg9 from "../assets/works/works10.png"
-import coverimg10 from "../assets/learn-mate/learn1.png"
+// import coverimg10 from "../assets/learn-mate/learn1.png"
 
 
 
@@ -145,7 +145,7 @@ sub:[
  {
     id: "slams-hunt",
     title: "Slams hunt",
-    subtitle: "Website",
+    subtitle: "Mobile app",
     coverImage:coverimg2,
 
 
@@ -256,7 +256,7 @@ sub:[
  {
     id: "Ziya-Global-Ventures",
     title: "Ziya Global Ventures",
-    subtitle: "Website",
+    subtitle: "Mobile app",
     coverImage:coverimg4,
 
 
@@ -311,7 +311,7 @@ sub:[
  {
     id: "Slams-Ride",
     title: "Slams Ride",
-    subtitle: "App",
+    subtitle: "Mobile app",
     coverImage:coverimg5,
 
 
@@ -365,7 +365,7 @@ sub:[
  {
     id: "learn-mate",
     title: "Ziya Learn mate",
-    subtitle: "App",
+    subtitle: "Mobile app",
     coverImage:coverimg6,
 
 
@@ -532,7 +532,7 @@ sub:[
 
 
  description:
-"This app connects local businesses with real users to boost visibility and brand awareness in target areas. Businesses create promotional campaigns and assign simple engagement tasks such as store visits, content sharing, reviews, or offer promotion. Users complete tasks through the mobile app and earn rewards for verified actions. The system provides transparent tracking, secure submissions, and performance based payouts. Companies gain authentic local exposure, wider reach, and stronger community trust, while users enjoy flexible earning opportunities and help nearby brands grow through genuine participation. Results are measurable and campaigns remain easy to manage daily.",
+"This app connects local businesses with real users to boost[] visibility and brand awareness in target areas. Businesses create promotional campaigns and assign simple engagement tasks such as store visits, content sharing, reviews, or offer promotion. Users complete tasks through the mobile app and earn rewards for verified actions. The system provides transparent tracking, secure submissions, and performance based payouts. Companies gain authentic local exposure, wider reach, and stronger community trust, while users enjoy flexible earning opportunities and help nearby brands grow through genuine participation. Results are measurable and campaigns remain easy to manage daily.",
 head:"How We Built a Smarter Local Promotion Platform",
 
 head2:[

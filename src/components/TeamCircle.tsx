@@ -107,13 +107,24 @@ const TeamCircle = ({ setActiveMember, scrollYProgress }: Props) => {
 
   /* SCROLL → SWEEP */
 
-  const sweepProgress = useTransform(scrollYProgress, [0.05, 0.65], [0, 360]);
+// PHASE 1 → first reveal
+const sweepPhase1 = useTransform(scrollYProgress, [0.05, 0.5], [0, 360]);
 
-const sweep = useSpring(sweepProgress, {
+// PHASE 2 → second reveal
+const sweepPhase2 = useTransform(scrollYProgress, [0.5, 0.95], [0, 360]);
+
+
+const sweep1 = useSpring(sweepPhase1, {
   stiffness: 90,
   damping: 25,
   mass: 0.4
-}); 
+});
+
+const sweep2 = useSpring(sweepPhase2, {
+  stiffness: 90,
+  damping: 25,
+  mass: 0.4
+});
 
   /* TEAM SWITCH */
 
@@ -125,11 +136,19 @@ const sweep = useSpring(sweepProgress, {
     }
   });
 
-const [sweepValue, setSweepValue] = useState(1)
+const [sweepValue, setSweepValue] = useState(1);
 
-useMotionValueEvent(sweep, "change", (v) => {
-  setSweepValue(Math.max(1, v))
-})
+useMotionValueEvent(scrollYProgress, "change", (v) => {
+  if (v < 0.5) {
+    // FIRST ANIMATION
+    setActiveMembers(teamMembers1);
+    setSweepValue(sweep1.get());
+  } else {
+    // SECOND ANIMATION
+    setActiveMembers(teamMembers2);
+    setSweepValue(sweep2.get());
+  }
+});
 
 const radiusMask = 1200
 const centerX = 350
@@ -164,7 +183,7 @@ const y = centerY + radiusMask * Math.sin(angle)
 
 const largeArc = sweepValue >= 180 ? 1 : 0
 
-maskPath = `
+maskPath = ` 
 M ${centerX} ${centerY}
 L ${centerX + radiusMask} ${centerY}
 A ${radiusMask} ${radiusMask} 0 ${largeArc} 1 ${x} ${y}
