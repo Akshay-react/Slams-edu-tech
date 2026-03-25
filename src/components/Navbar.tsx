@@ -12,7 +12,7 @@ const Navbar: React.FC = () => {
     { label: "Works", to: "/works" },
     { label: "Careers", to: "/careers" },
     { label: "About Us", href: "#about" }, // ✅ only this uses HashLink
-    { label: "Blog", to: "/blog" }, // ❌ no hash here now
+    // { label: "Blog", to: "/blog" }, // ❌ no hash here now
   ];
 
   const [scrolled, setScrolled] = useState(false);
