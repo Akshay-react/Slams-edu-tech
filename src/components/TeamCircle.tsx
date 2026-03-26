@@ -1,4 +1,4 @@
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import member1 from "../assets/member1.png";
 import member2 from "../assets/member2.png";
 import member3 from "../assets/member3.png";
@@ -6,8 +6,29 @@ import member4 from "../assets/member4.png";
 import member5 from "../assets/member5.png";
 import member6 from "../assets/member6.png";
 
+import member7 from "../assets/member6.png";
+import member8 from "../assets/member5.png";
+import member9 from "../assets/member4.png";
+import member10 from "../assets/member3.png";
+import member11 from "../assets/member2.png";
+import member12 from "../assets/member1.png";
+
+
+
+import sreekutty from "../assets/sreekutty.png"
+import alfread from "../assets/alfred.png"
+import hr from "../assets/Hr.png"
+import anoop from "../assets/anoop.png"
+import noufal from "../assets/noufal.png"
+import akshay from "../assets/Akshay-ui.png"
+
+
+
+
+
 import Segment from "./Segment";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
+import { useInView } from "framer-motion";
 
 interface TeamMember {
   id: number;
@@ -16,43 +37,37 @@ interface TeamMember {
   image: string;
 }
 
-const teamMembers: TeamMember[] = [
-  {
-    id: 1,
-    name: "Anugrah Sivadasan",
-    role: "Frontend Developer",
-    image: member1
-  },
-  {
-    id: 2,
-    name: "Jesna",
-    role: "Finance Head",
-    image: member2
-  },
-  {
-    id: 3,
-    name: "Ashvin Kunnirikkal",
-    role: "AI/ML Engineer",
-    image: member3
-  },
-  {
-    id: 4,
-    name: "Akshay",
-    role: "Frontend Developer",
-    image: member4
-  },
-  {
-    id: 5,
-    name: "Athulya Jinu",
-    role: "UI/UX developer",
-    image: member5
-  },
-  {
-    id: 6,
-    name: "Cinda Sibichan",
-    role: "Python Developer",
-    image: member6
-  }
+interface TeamCircleProps {
+  setActiveMember: (member: TeamMember | null) => void;
+  groupIndex: number;
+  rotate: number;
+}
+
+const teamGroups: TeamMember[][] = [
+  [
+    { id: 1, name: "Anugrah Sivadasan", role: "Frontend Developer", image: member1 },
+    { id: 2, name: "Jesna", role: "Finance Head", image: member2 },
+    { id: 3, name: "Ashvin Kunnirikkal", role: "AI/ML Engineer", image: member3 },
+    { id: 4, name: "Akshay", role: "Frontend Developer", image: member4 },
+    { id: 5, name: "Athulya Jinu", role: "UI/UX Developer", image: member5 },
+    { id: 6, name: "Cinda Sibichan", role: "Python Developer", image: member6 },
+  ],
+  [
+    { id: 7, name: "Sreekutty", role: "Operation Head", image: sreekutty },
+    { id: 8, name: "Fayas", role: "Hr", image: hr },
+    { id: 9, name: "Alfread", role: "Digiyal market", image: alfread },
+    { id: 10, name: "Anoop", role: "Python", image: anoop },
+    { id: 11, name: "Noufal", role: "Ui/Ux", image: noufal },
+    { id: 12, name: "Akshay", role: "Ui/Ux", image: akshay },
+  ],
+  [
+    { id: 8, name: "Member 8", role: "Designer", image: member8 },
+    { id: 7, name: "Member 7", role: "Developer", image: member7 },
+    { id: 10, name: "Member 10", role: "Engineer", image: member10 },
+    { id: 9, name: "Member 9", role: "Engineer", image: member9 },
+    { id: 12, name: "Member 12", role: "Developer", image: member12 },
+    { id: 11, name: "Member 11", role: "Manager", image: member11 },
+  ],
 ];
 
 const imageSettings = [
@@ -95,77 +110,46 @@ L121.577 30.2536
 C118.803 25.3897 120.563 19.1962 125.48 16.5178
 Z
 `;
-
-interface TeamCircleProps {
-  setActiveMember: (member: TeamMember | null) => void;
-}
-
-const TeamCircle: React.FC<TeamCircleProps> = ({ setActiveMember }) => {
-
+const TeamCircle: React.FC<TeamCircleProps> = ({ setActiveMember, groupIndex, rotate }) => {
   const center = 350;
   const pivotCX = 105;
   const pivotCY = 155;
 
   const containerRef = useRef(null);
+  const isInView = useInView(containerRef, { once: true, amount: 0.4 });
 
-  const isInView = useInView(containerRef, {
-    once: true,
-    amount: 0.4,
-  });
-
-  const [inertia, setInertia] = useState(false);
-
-  useEffect(() => {
-    if (!isInView) return;
-
-    const timer = setTimeout(() => {
-      setInertia(true);
-    }, 1000);
-
-    return () => clearTimeout(timer);
-  }, [isInView]);
+  const members = teamGroups[groupIndex];
 
   return (
     <motion.div
       ref={containerRef}
-      className="w-[750px] h-[750px] relative"
+      className="w-[750px] h-[750px]"
       initial={{ opacity: 0, y: 80 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{
-        duration: 1.2,
-        ease: [0.22, 1, 0.36, 1],
-      }}
+      transition={{ duration: 1.2 }}
     >
-
       <motion.svg
         viewBox="0 0 750 750"
-        className="w-[750px] h-[750px]"
-        animate={inertia ? { rotate: [0, 4, 0] } : { rotate: 0 }}
-        transition={{
-          duration: 1,
-          ease: [0.33, 1, 0.68, 1],
-        }}
-        style={{ transformOrigin: "50% 50%" }}
+        className="w-full h-full"
+        animate={{ rotate }}
+        transition={{ duration: 0.6 }}
+        style={{ originX: 0.5, originY: 0.5 }}
       >
-
         <defs>
-          {teamMembers.map((_, i) => (
-            <clipPath
-              key={i}
-              id={`clip-${i}`}
-              clipPathUnits="userSpaceOnUse"
-            >
+          {members.map((_, i) => (
+            <clipPath key={i} id={`clip-${i}`}>
               <path d={segmentPath} />
             </clipPath>
           ))}
         </defs>
 
-        {teamMembers.map((member, index) => (
+        {members.map((member, index) => (
           <Segment
-            key={member.id}   
-            member={member.image}   
-            memberData={member}   
-            index={index}   
+            key={member.id}
+            member={member.image}
+            memberData={member}
+            onHoverMember={setActiveMember}
+            index={index}
             seg={segmentSettings[index]}
             img={imageSettings[index]}
             segmentPath={segmentPath}
@@ -173,12 +157,9 @@ const TeamCircle: React.FC<TeamCircleProps> = ({ setActiveMember }) => {
             pivotCX={pivotCX}
             pivotCY={pivotCY}
             startAnimation={isInView}
-            onHoverMember={setActiveMember}
           />
         ))}
-
       </motion.svg>
-
     </motion.div>
   );
 };
