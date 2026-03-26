@@ -13,18 +13,12 @@ import member10 from "../assets/member3.png";
 import member11 from "../assets/member2.png";
 import member12 from "../assets/member1.png";
 
-
-
-import sreekutty from "../assets/sreekutty.png"
-import alfread from "../assets/alfred.png"
-import hr from "../assets/Hr.png"
-import anoop from "../assets/anoop.png"
-import noufal from "../assets/noufal.png"
-import akshay from "../assets/Akshay-ui.png"
-
-
-
-
+import sreekutty from "../assets/sreekutty.png";
+import alfread from "../assets/alfred.png";
+import hr from "../assets/Hr.png";
+import anoop from "../assets/anoop.png";
+import noufal from "../assets/noufal.png";
+import akshay from "../assets/Akshay-ui.png";
 
 import Segment from "./Segment";
 import { useRef } from "react";
@@ -55,10 +49,10 @@ const teamGroups: TeamMember[][] = [
   [
     { id: 7, name: "Sreekutty", role: "Operation Head", image: sreekutty },
     { id: 8, name: "Fayas", role: "Hr", image: hr },
-    { id: 9, name: "Alfread", role: "Digiyal market", image: alfread },
+    { id: 9, name: "Alfread", role: "Digital Market", image: alfread },
     { id: 10, name: "Anoop", role: "Python", image: anoop },
-    { id: 11, name: "Noufal", role: "Ui/Ux", image: noufal },
-    { id: 12, name: "Akshay", role: "Ui/Ux", image: akshay },
+    { id: 11, name: "Noufal", role: "UI/UX", image: noufal },
+    { id: 12, name: "Akshay", role: "UI/UX", image: akshay },
   ],
   [
     { id: 8, name: "Member 8", role: "Designer", image: member8 },
@@ -92,75 +86,79 @@ const segmentSettings = [
   { angle: baseAngle + step * 5 + gapAdjust, radius: 185, offsetX: 16, offsetY: 5 },
 ];
 
-const segmentPath = `
-M125.48 16.5178
-L153.575 1.21404
-C158.174 -1.29091 163.858 0.169156 166.356 4.77201
-C177.336 25.0107 204.023 82.022 203.397 157.124
-C202.853 222.541 175.312 282.704 163.932 304.811
-C161.365 309.797 155.168 311.335 140.397 308.386
-L5.22327 218.645
-C0.227532 215.557 -1.26238 208.672 1.09046 203.29
-C4.38293 195.76 8.38127 183.664 10.3125 166.516
-C12.6331 145.91 10.3714 130.984 8.17678 122.311
-C6.88819 117.219 8.79312 111.454 13.3562 108.852
-L120.158 47.9527
-C124.956 45.2169 126.627 39.1095 123.891 34.3117
-L121.577 30.2536
-C118.803 25.3897 120.563 19.1962 125.48 16.5178
-Z
-`;
-const TeamCircle: React.FC<TeamCircleProps> = ({ setActiveMember, groupIndex, rotate }) => {
-  const center = 350;
-  const pivotCX = 105;
-  const pivotCY = 155;
+const segmentPath = `M125.48 16.5178 L153.575 1.21404 C158.174 -1.29091 163.858 0.169156 166.356 4.77201 C177.336 25.0107 204.023 82.022 203.397 157.124 C202.853 222.541 175.312 282.704 163.932 304.811 C161.365 309.797 155.168 311.335 140.397 308.386 L5.22327 218.645 C0.227532 215.557 -1.26238 208.672 1.09046 203.29 C4.38293 195.76 8.38127 183.664 10.3125 166.516 C12.6331 145.91 10.3714 130.984 8.17678 122.311 C6.88819 117.219 8.79312 111.454 13.3562 108.852 L120.158 47.9527 C124.956 45.2169 126.627 39.1095 123.891 34.3117 L121.577 30.2536 C118.803 25.3897 120.563 19.1962 125.48 16.5178 Z`;
 
+const TeamCircle: React.FC<TeamCircleProps> = ({ setActiveMember, groupIndex, rotate }) => {
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { once: true, amount: 0.4 });
 
   const members = teamGroups[groupIndex];
 
   return (
-    <motion.div
-      ref={containerRef}
-      className="w-[750px] h-[750px]"
-      initial={{ opacity: 0, y: 80 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 1.2 }}
-    >
-      <motion.svg
-        viewBox="0 0 750 750"
-        className="w-full h-full"
-        animate={{ rotate }}
-        transition={{ duration: 0.6 }}
-        style={{ originX: 0.5, originY: 0.5 }}
-      >
-        <defs>
-          {members.map((_, i) => (
-            <clipPath key={i} id={`clip-${i}`}>
-              <path d={segmentPath} />
-            </clipPath>
-          ))}
-        </defs>
+    <div ref={containerRef} className="w-full">
 
-        {members.map((member, index) => (
-          <Segment
+      {/* ✅ MOBILE VIEW */}
+      <div className="md:hidden flex gap-4 overflow-x-auto px-4 py-6">
+        {members.map((member) => (
+          <div
             key={member.id}
-            member={member.image}
-            memberData={member}
-            onHoverMember={setActiveMember}
-            index={index}
-            seg={segmentSettings[index]}
-            img={imageSettings[index]}
-            segmentPath={segmentPath}
-            center={center}
-            pivotCX={pivotCX}
-            pivotCY={pivotCY}
-            startAnimation={isInView}
-          />
+            onClick={() => setActiveMember(member)}
+            className="min-w-[220px] bg-[#111] rounded-2xl p-4 flex-shrink-0 cursor-pointer"
+          >
+            <img
+              src={member.image}
+              alt={member.name}
+              className="w-full h-[240px] object-cover rounded-xl"
+            />
+            <h3 className="text-white mt-4 text-lg font-semibold">
+              {member.name}
+            </h3>
+            <p className="text-gray-400 text-sm">{member.role}</p>
+          </div>
         ))}
-      </motion.svg>
-    </motion.div>
+      </div>
+
+      {/* ✅ DESKTOP VIEW */}
+      <motion.div
+        className="hidden md:block w-[750px] h-[750px]"
+        initial={{ opacity: 0, y: 80 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 1.2 }}
+      >
+        <motion.svg
+          viewBox="0 0 750 750"
+          className="w-full h-full"
+          animate={{ rotate }}
+          transition={{ duration: 0.6 }}
+          style={{ originX: 0.5, originY: 0.5 }}
+        >
+          <defs>
+            {members.map((_, i) => (
+              <clipPath key={i} id={`clip-${i}`}>
+                <path d={segmentPath} />
+              </clipPath>
+            ))}
+          </defs>
+
+          {members.map((member, index) => (
+            <Segment
+              key={member.id}
+              member={member.image}
+              memberData={member}
+              onHoverMember={setActiveMember}
+              index={index}
+              seg={segmentSettings[index]}
+              img={imageSettings[index]}
+              segmentPath={segmentPath}
+              center={350}
+              pivotCX={105}
+              pivotCY={155}
+              startAnimation={isInView}
+            />
+          ))}
+        </motion.svg>
+      </motion.div>
+    </div>
   );
 };
 
