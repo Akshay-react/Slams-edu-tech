@@ -91,7 +91,7 @@ const Service = () => {
       </p>
 
       <div className="flex flex-col md:flex-row md:justify-between gap-6">
-        <p className="pt-4 font-[300] font-heading tracking-wide text-3xl md:text-6xl">
+        <p className="pt-4 font-extrabold font-heading  text-3xl md:text-4xl lg:text-5xl">
           Complete IT Solutions for <br />
           <span className="text-blue-400 "> Your Business Growth </span>
         </p>
@@ -99,7 +99,7 @@ const Service = () => {
         {/* Desktop button */}
          <div className="pt-4 hidden md:block">
   <Link to="/service">
-    <ViewMoreButton text="View More" />
+    <ViewMoreButton text=" View More" />
   </Link>
 </div>
       </div>

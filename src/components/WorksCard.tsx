@@ -18,7 +18,7 @@ export default function WorksCard({
     <div className="w-full max-w-[390px] mx-auto relative group">
 
       {/* CARD SHAPE */}
-      <div className="w-full aspect-[390/396]">
+      <div className="w-full aspect-[390/396] ">
 
         <svg
           viewBox="0 0 390 396"
@@ -53,7 +53,7 @@ export default function WorksCard({
             clipPath={`url(#${clipId})`}
           >
 
-            <div className="w-full h-full relative">
+            <div className="w-full h-full relative  hover:border border-blue-700 overflow-hidden">
 
               {/* Image */}
               <img
@@ -94,7 +94,7 @@ export default function WorksCard({
 
       <div className="pt-4 sm:pt-6 md:pt-8">
 
-        <p className="font-bold text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] leading-tight">
+        <p className="font-bold text-[18px] font-outfit sm:text-[20px] md:text-[22px] lg:text-[24px] leading-tight group-hover:text-blue-400 transition ">
           {name}
         </p>
 

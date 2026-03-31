@@ -26,12 +26,14 @@ const StyledWrapper = styled.div`
     border: none;
     background: transparent;
     cursor: pointer;
+    display: inline-block;
+  width: fit-content;
 
     /* 🔥 customize here */
     --border-right: 4px;
     --text-stroke-color: rgba(255, 255, 255, 0.5);
     --animation-color: #3b82f6; /* blue (your theme) */
-    --fs-size: 1.2rem;
+    --fs-size: 1.0rem;
 
     letter-spacing: 2px;
     font-size: var(--fs-size);
@@ -43,23 +45,33 @@ const StyledWrapper = styled.div`
     -webkit-text-stroke: 1px var(--text-stroke-color);
   }
 
+  .actual-text,
+.hover-text {
+  display: inline-block;
+  white-space: nowrap;
+}
+
   .hover-text {
-    position: absolute;
-    inset: 0;
-    width: 0%;
-    overflow: hidden;
+  position: absolute;
+  inset: 0;
+  width: 0%;
+  overflow: hidden;
 
-    color: var(--animation-color);
-    border-right: var(--border-right) solid var(--animation-color);
+  color: var(--animation-color);
+  border-right: var(--border-right) solid var(--animation-color);
 
-    transition: width 0.5s ease;
-    -webkit-text-stroke: 1px var(--animation-color);
-  }
+  transition: width 0.5s ease;
+  -webkit-text-stroke: 1px var(--animation-color);
+
+  
+}
 
   .button:hover .hover-text {
     width: 100%;
     filter: drop-shadow(0 0 12px var(--animation-color));
   }
+
+  
 `;
 
 export default ViewMoreButton;
