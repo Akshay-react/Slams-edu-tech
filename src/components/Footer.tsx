@@ -21,7 +21,7 @@ const Footer: React.FC = () => {
         <div >
                            <img src={logo} alt="Logo" className="h-24 w-auto object-contain" />
 
-          <h2 className="text-xl sm:text-2xl font-semibold leading-snug text-center md:text-left">
+          <h2 className="text-[18px] max-w-[400px] leading-snug text-center text-[#A1A1A1] md:text-left">
             Empowering future tech leaders through industry-ready training and comprehensive IT solutions. Start your journey today.
           </h2>
 
