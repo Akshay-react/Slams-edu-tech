@@ -5,7 +5,7 @@ const WhyChooseSection = () => {
   return (
     <section className="w-full bg-black text-white py-32 px-6">
 
-      <div className="max-w-[1300px] mx-auto">
+      <div className="max-w-full px-6">
 
         {/* Heading */}
         <div className="mb-12">
@@ -13,7 +13,7 @@ const WhyChooseSection = () => {
             / Why Choose Us
           </p>
 
-          <h2 className="text-4xl md:text-5xl font-semibold font-heading tracking-tight leading-tight max-w-3xl">
+          <h2 className="text-4xl md:text-5xl font-semibold font-heading tracking-tight leading-tight max-w-4xl">
             More than services —
             <span className="text-blue-500"> we create success stories.</span>
           </h2>
