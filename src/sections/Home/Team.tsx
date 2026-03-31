@@ -1,6 +1,6 @@
 import TeamCircle from "../../components/TeamCircle";
 import flowerBg from "../../assets/meetourteambg.svg";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 
 interface TeamMember {
@@ -8,7 +8,7 @@ interface TeamMember {
   role: string;
 }
 
-const TOTAL_GROUPS = 3; // ✅ updated (you added 3 groups)
+const TOTAL_GROUPS = 3;
 
 const Team = () => {
   const [activeMember, setActiveMember] = useState<TeamMember | null>(null);
@@ -17,6 +17,12 @@ const Team = () => {
 
   const sectionRef = useRef<HTMLDivElement>(null);
 
+  // ✅ CORRECT: hook at top level
+  const isInView = useInView(sectionRef, {
+    amount: 0.7, // 70% visible
+  });
+
+  // ✅ MAIN SCROLL LOGIC
   useEffect(() => {
     const el = sectionRef.current;
     if (!el) return;
@@ -24,17 +30,19 @@ const Team = () => {
     let isThrottled = false;
 
     const handleWheel = (e: WheelEvent) => {
+      // 🚨 Only trigger when section is visible
+      if (!isInView) return;
 
       const isAtTop = groupIndex === 0;
       const isAtBottom = groupIndex === TOTAL_GROUPS - 1;
 
-      // ✅ UNLOCK SCROLL when limits reached
+      // ✅ Allow normal scroll at edges
       if ((isAtTop && e.deltaY < 0) || (isAtBottom && e.deltaY > 0)) {
         document.body.style.overflow = "auto";
         return;
       }
 
-      // ✅ LOCK PAGE SCROLL
+      // ✅ Lock scroll
       document.body.style.overflow = "hidden";
 
       if (isThrottled) return;
@@ -42,7 +50,7 @@ const Team = () => {
       e.preventDefault();
       isThrottled = true;
 
-      // rotate feedback
+      // rotate animation
       setRotate(e.deltaY > 0 ? 30 : -30);
 
       setTimeout(() => setRotate(0), 400);
@@ -63,9 +71,19 @@ const Team = () => {
 
     return () => {
       el.removeEventListener("wheel", handleWheel);
-      document.body.style.overflow = "auto"; // cleanup
+      document.body.style.overflow = "auto";
     };
-  }, [groupIndex]);
+  }, [groupIndex, isInView]);
+
+  // ✅ AUTO CENTER SECTION (smooth UX)
+  useEffect(() => {
+    if (isInView) {
+      sectionRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }
+  }, [isInView]);
 
   return (
     <section
@@ -74,6 +92,7 @@ const Team = () => {
     >
       <div className="max-w-7xl mx-auto flex items-center justify-evenly gap-20">
 
+        {/* LEFT - CIRCLE */}
         <div className="relative flex-shrink-0 z-20 -translate-x-14">
           <TeamCircle
             setActiveMember={setActiveMember}
@@ -82,6 +101,7 @@ const Team = () => {
           />
         </div>
 
+        {/* RIGHT - CONTENT */}
         <div className="relative w-[520px] flex-shrink-0">
 
           <motion.img
@@ -119,6 +139,7 @@ const Team = () => {
               </motion.p>
             </AnimatePresence>
           </div>
+
         </div>
       </div>
     </section>
