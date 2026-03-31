@@ -12,7 +12,7 @@ const Navbar: React.FC = () => {
     { label: "Works", to: "/works" },
     { label: "Careers", to: "/careers" },
     { label: "About Us", href: "#about" }, // ✅ only this uses HashLink
-    { label: "Blog", to: "/blog" }, // ❌ no hash here now
+    // { label: "Blog", to: "/blog" }, // ❌ no hash here now
   ];
 
   const [scrolled, setScrolled] = useState(false);
@@ -36,7 +36,7 @@ const Navbar: React.FC = () => {
       <div className="w-full mx-auto px-6 lg:px-8 py-5 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center gap-2">
-          <img src={logo} alt="Logo" className="h-12 w-auto object-contain" />
+          <img src={logo} alt="Logo" className="h-16 max-w-[140px] object-contain scale-105" />
         </div>
 
         {/* Desktop Navigation */}

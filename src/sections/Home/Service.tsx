@@ -81,6 +81,7 @@ import { services } from "@/data/service";
 import CustomShapeCard from "@/components/CustomShapedCard";
 import StarBorder from "../../components/StarBorder";
 import { Link } from "react-router-dom";
+import ViewMoreButton from "../../components/Button";
 
 const Service = () => {
   return (
@@ -90,26 +91,17 @@ const Service = () => {
       </p>
 
       <div className="flex flex-col md:flex-row md:justify-between gap-6">
-        <p className="pt-4 font-medium text-3xl md:text-5xl">
+        <p className="pt-4 font-[300] font-heading tracking-wide text-3xl md:text-6xl">
           Complete IT Solutions for <br />
-          <span className="text-blue-400"> Your Business Growth </span>
+          <span className="text-blue-400 "> Your Business Growth </span>
         </p>
 
         {/* Desktop button */}
-        <div className="pt-4 hidden md:block">
-          <StarBorder
-            as={Link}
-            to="/service"
-            className="custom-class"
-            color="cyan"
-            speed="2s"
-            c1="from-black"
-            c2="via-black"
-            c3="to-gray-800"
-          >
-            View more
-          </StarBorder>
-        </div>
+         <div className="pt-4 hidden md:block">
+  <Link to="/service">
+    <ViewMoreButton text="View More" />
+  </Link>
+</div>
       </div>
 
       <p className="pt-4 text-[#ADADAD] text-[16px] md:text-[20px] font-outfit max-w-[1100px]">

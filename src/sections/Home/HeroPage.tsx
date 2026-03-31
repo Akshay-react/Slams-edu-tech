@@ -121,6 +121,8 @@ export default function HeroPage() {
         loop
         muted
         playsInline
+        preload="auto"
+        poster="/hero-fallback.jpg"
         className="hidden md:block absolute inset-0 w-full h-full object-cover pt-2 px-3 pb-12"
         style={{ clipPath: "url(#heroClip)" }}
       >
@@ -142,16 +144,16 @@ export default function HeroPage() {
       </div>
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/20 pointer-events-none" />
+      <div className="absolute inset-0 bg-black/30 pointer-events-none" />
 
       {/* Text Content */}
-      <div className="absolute z-10 bottom-28 md:bottom-48 left-6 md:left-12 text-white max-w-[900px]">
+      <div className="absolute z-10 bottom-28 md:bottom-48 left-6 md:left-12 text-white max-w-[925px]">
 
-        <p className="text-3xl md:text-6xl font-bold uppercase leading-tight md:leading-[60px] md:px-12">
+        <p className="text-3xl md:text-[66px] font-[500] tracking-tight font-heading uppercase leading-tight md:leading-[60px] md:px-12">
           Innovative <span>IT </span> Solutions <br /> for a Digital World
         </p>
 
-        <p className="text-[16px] md:text-[20px] leading-[22px] md:leading-[24px] md:pl-12 pt-4 font-medium max-w-[840px]">
+        <p className="text-[18px] font-outfit font-[200] md:text-[22px] tracking-wide leading-[22px] md:leading-[24px] md:pl-12 pt-4 font-medium max-w-[840px]">
           Slams Edu Tech delivers smart, scalable technology solutions that help businesses
           grow faster, operate more efficiently, and stay ahead through continuous innovation.
         </p>

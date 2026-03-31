@@ -107,7 +107,7 @@ const TeamCircle = ({ setActiveMember, scrollYProgress }: Props) => {
 
   /* SCROLL → SWEEP */
 
-const sweepProgress = useTransform(scrollYProgress, [0.1, 0.7], [0, 360]);
+const sweepProgress = useTransform(scrollYProgress, [0, 0.5 ], [0, 360]);
 
 
 

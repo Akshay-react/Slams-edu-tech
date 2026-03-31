@@ -66,7 +66,7 @@ const Works = () => {
       <p className="font-medium text-[20px] md:text-[24px] text-gray-400">/ Our Works</p>
 
       <div className="flex flex-col md:flex-row md:justify-between gap-6">
-        <p className="pt-4 font-medium text-3xl md:text-5xl">
+        <p className="pt-4 font-extrabold font-heading tracking-tight text-4xl md:text-[52px]">
           Smart Solutions for a
           <span className="text-blue-400"> Digital World </span>
         </p>
@@ -88,7 +88,7 @@ const Works = () => {
         </div>
       </div>
 
-      <p className="pt-4 text-[#ADADAD] text-[16px] md:text-[20px] font-outfit max-w-[1100px]">
+      <p className="pt-4 text-[#ADADAD] tracking-wider text-[16px] md:text-[20px] font-outfit max-w-[1100px]">
         From ideas to execution, we build digital solutions <br />
         that help your business grow and stay ahead.
       </p>

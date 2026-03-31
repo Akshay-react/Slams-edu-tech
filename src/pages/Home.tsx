@@ -1,68 +1,98 @@
-
 import { lazy, Suspense } from "react";
 import Loader from "@/components/Loader";
-import WhyChooseSection from "@/sections/Home/WhyChooseUs";
+import { useInView } from "react-intersection-observer";
 
-const HeroPage = lazy(() => import('../sections/Home/HeroPage'));
-const Service = lazy(() => import('../sections/Home/Service'));
-const Works = lazy(() => import('../sections/Home/Works'));
-const About = lazy(() => import('../sections/Home/About'));
-const Team = lazy(() => import('../sections/Home/Team'));
-const FoundersMessage = lazy(() => import('../sections/Home/FounderMessage'));
-const Robo = lazy(() => import('../sections/Home/Robo'));
-const Build = lazy(() => import('../sections/Home/Build'));
-const Faq = lazy(() => import('../sections/Home/Faq'));
-const ContactSection = lazy(() => import('../sections/Home/GetInTouch'));
+/* ✅ Reusable LazySection */
+const LazySection = ({ children }) => {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    rootMargin: "200px",
+  });
+
+  return (
+    <div ref={ref}>
+      {inView ? children : <div className="h-[500px]" />}
+    </div>
+  );
+};
+
+/* ✅ Lazy Imports */
+const HeroPage = lazy(() => import("../sections/Home/HeroPage"));
+const Service = lazy(() => import("../sections/Home/Service"));
+const Works = lazy(() => import("../sections/Home/Works"));
+const About = lazy(() => import("../sections/Home/About"));
+const Team = lazy(() => import("../sections/Home/Team"));
+const FoundersMessage = lazy(() => import("../sections/Home/FounderMessage"));
+const Robo = lazy(() => import("../sections/Home/Robo"));
+const Build = lazy(() => import("../sections/Home/Build"));
+const WhyChooseUs = lazy(() => import("../sections/Home/WhyChooseUs"));
+const Faq = lazy(() => import("../sections/Home/Faq"));
+const ContactSection = lazy(() => import("../sections/Home/GetInTouch"));
+
+/* ✅ Common Loader Wrapper */
+const SectionLoader = (
+  <div className="p-10">
+    <Loader />
+  </div>
+);
+
 const Home = () => {
   return (
-    
     <div>
-
-      <Suspense fallback={<div className="p-10"><Loader/></div>}>
+      {/* 🚀 Above the fold (NO LazySection) */}
+      <Suspense fallback={SectionLoader}>
         <HeroPage />
       </Suspense>
 
-      <Suspense fallback={<div className="p-10"><Loader/></div>}>
+      <Suspense fallback={SectionLoader}>
         <Service />
       </Suspense>
 
-      <Suspense fallback={<div className="p-10"><Loader/></div>}>
+      <Suspense fallback={SectionLoader}>
         <Works />
       </Suspense>
 
-      <Suspense fallback={<div className="p-10"><Loader/></div>}>
+      <Suspense fallback={SectionLoader}>
         <About />
       </Suspense>
 
-      <Suspense fallback={<div className="p-10"><Loader/></div>}>
+      <Suspense fallback={SectionLoader}>
         <FoundersMessage />
       </Suspense>
 
-      <Suspense fallback={<div className="p-10"><Loader/></div>}>
-        <Team />
-      </Suspense>
+      {/* ⚡ Heavy Sections (LazySection + Suspense) */}
+      <LazySection>
+        <Suspense fallback={SectionLoader}>
+          <Team />
+        </Suspense>
+      </LazySection>
 
-      <Suspense fallback={<div className="p-10"><Loader/></div>}>
+      <Suspense fallback={SectionLoader}>
         <Build />
       </Suspense>
 
-      <Suspense fallback={<div className="p-10"><Loader/></div>}>
-        <Robo />
-      </Suspense>
+      <LazySection>
+        <Suspense fallback={SectionLoader}>
+          <Robo />
+        </Suspense>
+      </LazySection>
 
+      <LazySection>
+        <Suspense fallback={SectionLoader}>
+          <WhyChooseUs />
+        </Suspense>
+      </LazySection>
 
-      <Suspense fallback={<div className="p-10"><Loader/></div>}>
-        <WhyChooseSection />
-      </Suspense>
-
-      <Suspense fallback={<div className="p-10"><Loader/></div>}>
+      {/* 📄 Light Sections */}
+      <Suspense fallback={SectionLoader}>
         <Faq />
       </Suspense>
 
-      <Suspense fallback={<div className="p-10"><Loader/></div>}>
+      <Suspense fallback={SectionLoader}>
         <ContactSection />
       </Suspense>
     </div>
   );
 };
-export default Home
+
+export default Home;

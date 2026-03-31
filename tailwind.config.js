@@ -4,6 +4,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
+        heading: ["Urbanist", "sans-serif"],
         outfit: ["Outfit", "sans-serif"],
                 plaster: ['Plaster', 'system-ui'],
 

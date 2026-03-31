@@ -52,6 +52,7 @@ const FoundersMessage: React.FC = () => {
               lg:text-4xl
               font-semibold
               whitespace-nowrap
+              font-heading
             ">
               Founders Message
             </h2>

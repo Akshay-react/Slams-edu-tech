@@ -43,11 +43,11 @@ const Team = () => {
 
   const { scrollYProgress } = useScroll({
   target: sectionRef,
-  offset: ["start start", "end start"]
+  offset: ["start end", "end start"]
 });
 
   return (
-    <section ref={sectionRef} className="relative h-[300vh] px-10 font-outfit overflow-hidden bg-black">
+    <section ref={sectionRef} className="relative px-10 font-outfit overflow-hidden bg-black">
 
   <div className="sticky top-0 h-screen w-full flex items-center">
 
