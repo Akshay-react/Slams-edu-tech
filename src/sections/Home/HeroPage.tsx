@@ -70,9 +70,9 @@
 
 
 import vid from "../../assets/robovid.mp4"
-import img1 from "../../assets/works/works1.png"
-import img2 from "../../assets/works/works2.png"
-import img3 from "../../assets/works/works3.png"
+import img1 from "../../assets/works/works2.webp"
+import img2 from "../../assets/works/works2.webp"
+import img3 from "../../assets/works/works3.webp"
 
 import AnimatedLinkButton from "../../components/AnimatedLinkButton";
 import { useState, useEffect } from "react";

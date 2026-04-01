@@ -2,15 +2,15 @@ import LogoLoop from './LogoScroll';
 import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss } from 'react-icons/si';
 
 import { Link } from "react-router-dom";
-import img7 from "../../assets/works/works7.png"
-import img2 from "../../assets/works/works2.png"
-import img3 from "../../assets/works/works3.png"
-import img4 from "../../assets/works/works4.png"
-import img5 from "../../assets/works/works5.png"
-import img6 from "../../assets/works/works6.png"
-import img8 from "../../assets/works/works8.png"
-import img9 from "../../assets/works/works9.png"
-import img10 from "../../assets/works/works10.png"
+import img7 from "../../assets/works/works7.webp"
+import img2 from "../../assets/works/works2.webp"
+import img3 from "../../assets/works/works3.webp"
+import img4 from "../../assets/works/works4.webp"
+import img5 from "../../assets/works/works5.webp"
+import img6 from "../../assets/works/works6.webp"
+import img8 from "../../assets/works/works8.webp"
+import img9 from "../../assets/works/works9.webp"
+import img10 from "../../assets/works/works10.webp"
 
 // const techLogos = [
 //   { node: <SiReact />, title: "React", href: "https://react.dev" },

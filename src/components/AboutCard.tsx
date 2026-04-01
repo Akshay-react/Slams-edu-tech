@@ -10,7 +10,7 @@ export default function AboutCard({
     <div className="w-full max-w-[370px]  aspect-[370/220] relative group ">
       <svg
         viewBox="0 0 370 220"
-        className="w-full h-full"
+        className="w-full h-full "
         xmlns="http://www.w3.org/2000/svg"
       >
 
@@ -47,10 +47,11 @@ export default function AboutCard({
   clipPath="url(#customClip)"
 >
   {/* THIS div gets blur and is clipped */}
-  <div className="w-full h-full backdrop-blur-sm bg-white/5 relative">
+  <div className="w-full h-full  bg-white/5 relative">   
+  {/* backdrop-blur-lg */}
 
     {/* Text */}
-    <div className="absolute bottom-20 left-5 text-white">
+    <div className="absolute  bottom-20 left-5 text-white">
       <div>{icon}</div>
       <div className="font-sm text-[20px] pt-4">{title}</div>
       <div className="text-[16px] text-[#CFCFCF] max-w-[300px]">

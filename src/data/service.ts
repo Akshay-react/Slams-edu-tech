@@ -1,9 +1,9 @@
 import img2 from "../assets/service2.jpg";
-import img3 from "../assets/service3.jpg";
+import img3 from "../assets/Service3.webp";
 import img1 from "../assets/robo.jpg";
 import img4 from "../assets/service4.jpg";
 import img5 from "../assets/service5.jpg";
-import img6 from "../assets/service6.jpg";
+import img6 from "../assets/service6.webp";
 import img7 from "../assets/service7.jpg";
 import img8 from "../assets/service8.jpg";
 import {

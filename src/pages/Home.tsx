@@ -38,7 +38,7 @@ const SectionLoader = (
 
 const Home = () => {
   return (
-    <div>
+    <div className="">
       {/* 🚀 Above the fold (NO LazySection) */}
       <Suspense fallback={SectionLoader}>
         <HeroPage />
