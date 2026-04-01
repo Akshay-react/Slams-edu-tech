@@ -1,6 +1,6 @@
 // src/components/FAQ.tsx
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { faqs } from "../../data/faq";
 import { Plus, Minus } from "lucide-react";
 
